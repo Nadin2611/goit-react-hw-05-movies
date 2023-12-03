@@ -1,34 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import getMovie from 'service/api';
 
 const HomePage = () => {
-  const [movies, setMovies] = useState([]);
+  const [trendingMovies, setMovies] = useState([]);
 
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: '2b5715eb91948ab21d8a3671ab9cf18a',
-      },
-    };
+    const fetchTrendingMovie = async () => {
+      try {
+        const trendingEndpoint = await getMovie('/trending/movie/week');
 
-    fetch(
-      'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
-      options
-    )
-      .then(response => {
-        response.json();
-        console.log(response);
-      })
-      .then(data => {
-        const moviesData = data.results.map(movie => ({
-          id: movie.id,
-          title: movie.title,
-        }));
-        setMovies(moviesData);
-      })
-      .catch(err => console.error(err));
+        console.log(trendingEndpoint);
+        setMovies(trendingEndpoint.results);
+      } catch (error) {
+        console.error('Error fetching trending movies:', error.message);
+      }
+    };
+    fetchTrendingMovie();
   }, []);
 
   return (
@@ -36,9 +24,9 @@ const HomePage = () => {
       <h1>Trending today</h1>
       <div>
         <ul>
-          {movies.map(movie => (
+          {trendingMovies.map(movie => (
             <li key={movie.id}>
-              <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+              <Link to={`/movie/${movie.id}`}>{movie.title ?? movie.name}</Link>
             </li>
           ))}
         </ul>
@@ -48,3 +36,7 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+// https://api.themoviedb.org/3/trending/movie/week?api_key=8817625a99e963f36ab0e1c9bab55397
+
+// https://api.themoviedb.org/3/trending/movie?api_key=2b5715eb91948ab21d8a3671ab9cf18a
