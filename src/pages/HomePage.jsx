@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import getMovie from 'service/api';
+import MoviesList from 'components/MoviesList/MoviesList';
 
 const HomePage = () => {
   const [trendingMovies, setMovies] = useState([]);
@@ -23,20 +23,10 @@ const HomePage = () => {
     <div>
       <h1>Trending today</h1>
       <div>
-        <ul>
-          {trendingMovies.map(movie => (
-            <li key={movie.id}>
-              <Link to={`/movie/${movie.id}`}>{movie.title ?? movie.name}</Link>
-            </li>
-          ))}
-        </ul>
+        <MoviesList movies={trendingMovies} />
       </div>
     </div>
   );
 };
 
 export default HomePage;
-
-// https://api.themoviedb.org/3/trending/movie/week?api_key=8817625a99e963f36ab0e1c9bab55397
-
-// https://api.themoviedb.org/3/trending/movie?api_key=2b5715eb91948ab21d8a3671ab9cf18a

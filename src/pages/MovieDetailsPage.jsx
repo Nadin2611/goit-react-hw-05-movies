@@ -1,6 +1,6 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -11,15 +11,7 @@ const MovieDetailsPage = () => {
   }, []);
   return (
     <div>
-      <h2>Movie</h2>
-      <ul>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
+      <MovieDetails />
       <Outlet />
     </div>
   );
