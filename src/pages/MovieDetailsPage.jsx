@@ -1,18 +1,43 @@
 import { Outlet, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import MovieDetails from 'components/MovieDetails/MovieDetails';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import MovieInfo from 'components/MovieInfo/MovieInfo';
+import { getMovieDetails } from 'service/api';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  console.log('movieId', movieId); //params -деструтуризували з...
+  const [details, setDetails] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    // запит, якщо потрібно
-  }, []);
+    if (!movieId) return;
+    setIsLoading(true);
+    setError('');
+    getMovieDetails(movieId)
+      .then(setDetails)
+      .catch(error =>
+        setError('Somesing wrong!!!').finally(() => {
+          setIsLoading(false);
+        })
+      );
+  }, [movieId]);
+
+  useEffect(() => {
+    if (!error) return;
+    toast.error(error);
+  }, [error]);
+
+  useEffect(() => {
+    if (!movieId) return;
+  }, [movieId]);
+
   return (
     <div>
-      <MovieDetails />
+      {details && <MovieInfo {...details} />}
       <Outlet />
+      {isLoading && <p>...Loading</p>}
     </div>
   );
 };

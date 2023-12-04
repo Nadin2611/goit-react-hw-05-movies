@@ -3,7 +3,7 @@ import getMovies from 'service/api';
 import MoviesList from 'components/MoviesList/MoviesList';
 
 const HomePage = () => {
-  const [trendingMovies, setMovies] = useState([]);
+  const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
@@ -11,7 +11,7 @@ const HomePage = () => {
         const trendingEndpoint = await getMovies('/trending/movie/week');
 
         console.log(trendingEndpoint);
-        setMovies(trendingEndpoint.results);
+        setTrendingMovies(trendingEndpoint.results);
       } catch (error) {
         console.error('Error fetching trending movies:', error.message);
       }

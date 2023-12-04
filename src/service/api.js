@@ -13,4 +13,19 @@ const getMovies = async (endpoint, params = {}) => {
   return response.data;
 };
 
+const getMovieDetails = async movieId => {
+  const { data } = await axios.get(`/movie/${movieId}`);
+  const { title, poster_path, popularity, overview, genres, release_date } =
+    data.getMovies[0];
+  return {
+    title,
+    poster_path,
+    popularity,
+    overview,
+    genres,
+    release_date,
+  };
+};
+
 export default getMovies;
+export { getMovieDetails };
