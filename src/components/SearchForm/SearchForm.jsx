@@ -1,25 +1,15 @@
-import { useSearchParams } from 'react-router-dom';
 import { FormContainer, Form, Label, Input, Button } from './SearchForm.styled';
-// import { useState } from 'react';
 
-const SearchForm = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const movieId = searchParams.get('searchInput') || '';
-  //   const [searchMovies, setSearchMovies] = useState([]);
-
-  //   const filteredMovies = searchMovies.filter(movie => movie.includes(movieId));
-
+const SearchForm = ({ searchQuery, handleSubmit, handleChange }) => {
   return (
     <FormContainer>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Label></Label>
         <Input
           type="text"
-          value={movieId}
+          value={searchQuery}
           placeholder="Enter text to search"
-          onChange={event =>
-            setSearchParams({ searchInput: event.target.value })
-          }
+          onChange={handleChange}
         />
         <Button type="submit">Search</Button>
       </Form>

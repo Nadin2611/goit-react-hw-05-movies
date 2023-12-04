@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import getMovie from 'service/api';
+import getMovies from 'service/api';
 import MoviesList from 'components/MoviesList/MoviesList';
 
 const HomePage = () => {
   const [trendingMovies, setMovies] = useState([]);
 
   useEffect(() => {
-    const fetchTrendingMovie = async () => {
+    const fetchTrendingMovies = async () => {
       try {
-        const trendingEndpoint = await getMovie('/trending/movie/week');
+        const trendingEndpoint = await getMovies('/trending/movie/week');
 
         console.log(trendingEndpoint);
         setMovies(trendingEndpoint.results);
@@ -16,7 +16,7 @@ const HomePage = () => {
         console.error('Error fetching trending movies:', error.message);
       }
     };
-    fetchTrendingMovie();
+    fetchTrendingMovies();
   }, []);
 
   return (
