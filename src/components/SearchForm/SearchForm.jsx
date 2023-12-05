@@ -9,16 +9,24 @@ const SearchForm = ({ searchQuery, onSubmit }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    const query = event.target.value.trim().toLowerCase();
+    const query = event.target
+      .querySelector('input')
+      .value.trim()
+      .toLowerCase();
     if (!query) return;
-    setSearchParams({ query });
+    setSearchParams({ search: query });
   };
 
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit}>
         <Label></Label>
-        <Input type="text" value={query} placeholder="Enter text to search" />
+        <Input
+          type="text"
+          value={query}
+          placeholder="Enter text to search"
+          onChange={() => {}}
+        />
         <Button type="submit">Search</Button>
       </Form>
     </FormContainer>

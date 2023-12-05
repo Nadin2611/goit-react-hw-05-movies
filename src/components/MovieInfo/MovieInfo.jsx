@@ -6,12 +6,12 @@ import {
   Overview,
   Genres,
   AdditionalInfo,
-  List,
-  ListItem,
-  StyledLink,
+  // List,
+  // ListItem,
+  // StyledLink,
 } from './MovieInfo.styled';
 
-const MovieDetails = ({
+const MovieInfo = ({
   title,
   poster_path,
   popularity,
@@ -25,7 +25,7 @@ const MovieDetails = ({
       <Title>
         {title} ({year})
       </Title>
-      <Image src="movies.jpg" alt="movie-foto" />
+      <Image src={poster_path} alt="movie-foto" />
       <UserScore>User Score: {popularity}%</UserScore>
 
       <Overview>Overview: {overview}</Overview>
@@ -38,16 +38,16 @@ const MovieDetails = ({
       </Genres>
       <AdditionalInfo>Additional information</AdditionalInfo>
 
-      <List>
+      {/* <List>
         <ListItem>
           <StyledLink to="cast">Cast</StyledLink>
         </ListItem>
         <ListItem>
           <StyledLink to="reviews">Reviews</StyledLink>
         </ListItem>
-      </List>
+      </List> */}
     </Container>
   );
 };
 
-export default MovieDetails;
+export default MovieInfo;
