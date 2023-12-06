@@ -6,12 +6,12 @@ const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
+    console.log('Effect is running');
     const fetchTrendingMovies = async () => {
       try {
-        const trendingEndpoint = await getMovies('trending/movie/week');
+        const trendingData = await getMovies('trending/movie/week');
 
-        console.log(trendingEndpoint);
-        setTrendingMovies(trendingEndpoint.results);
+        setTrendingMovies(trendingData.results);
       } catch (error) {
         console.error('Error fetching trending movies:', error.message);
       }

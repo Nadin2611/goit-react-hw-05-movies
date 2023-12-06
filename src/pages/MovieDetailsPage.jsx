@@ -15,10 +15,6 @@ const MovieDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // useEffect(() => {
-  //   if (!movieId) return;
-  // }, [movieId]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {

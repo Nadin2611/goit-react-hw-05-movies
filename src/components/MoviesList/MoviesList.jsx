@@ -4,13 +4,16 @@ const MoviesList = ({ movies }) => {
   return (
     <Container>
       <List>
-        {movies.map(movie => (
-          <MovieItem key={movie.id}>
-            <MovieLink to={`/movies/${movie.id}`}>
-              {movie.title ?? movie.name}
-            </MovieLink>
-          </MovieItem>
-        ))}
+        {movies.map(({ id, name, title, release_date }) => {
+          const year = release_date ? new Date(release_date).getFullYear() : '';
+          return (
+            <MovieItem key={id}>
+              <MovieLink to={`/movies/${id}`}>
+                {title ?? name} ({year})
+              </MovieLink>
+            </MovieItem>
+          );
+        })}
       </List>
     </Container>
   );

@@ -25,11 +25,10 @@ const Reviews = () => {
       try {
         setIsLoading(true);
         setError('');
-        const fetchData = await getMovies(`movie/${movieId}/reviews`);
-        console.log(fetchData.results);
-        setReviews(fetchData.results);
 
-        console.log(fetchData.results.name);
+        const fetchData = await getMovies(`movie/${movieId}/reviews`);
+
+        setReviews(fetchData.results);
       } catch (error) {
         setError('Something went wrong!!!');
         toast.error(error.message);
@@ -37,9 +36,10 @@ const Reviews = () => {
         setIsLoading(false);
       }
     };
-    if (movieId) {
-      fetchReviews();
+    if (!movieId) {
+      return;
     }
+    fetchReviews();
   }, [movieId]);
 
   return (

@@ -1,53 +1,61 @@
-// import { useState, useEffect, useCallback } from 'react';
-// import { useSearchParams } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// // import MoviesList from 'components/MoviesList/MoviesList';
-// import SearchForm from 'components/SearchForm/SearchForm';
-// import getMovies from 'service/api';
+import SearchForm from 'components/SearchForm/SearchForm';
+import MoviesList from 'components/MoviesList/MoviesList';
+import { Loader } from 'components/Loader/Loader';
+import getMovies from 'service/api';
 
 const MoviesPage = () => {
-  // // запит, якщо потрібно - state, loding,error
-  // const [searchValue, setSearchValue] = useState('');
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const [moviesByKeyword, setMoviesByKeyword] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
-  // const fetchMoviesByKeyword = useCallback(async () => {
-  //   try {
-  //     setLoading(true);
-  //     const moviesData = await getMovies(
-  //       'search/movie',
-  //       `&query=${searchValue}`
-  //     );
-  //     setMoviesByKeyword(moviesData.results);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     setError(error.message);
-  //     setLoading(false);
-  //   }
-  // }, [searchValue]);
-  // // useEffect(() => {
-  // //   fetchMoviesByKeyword();
-  // // }, []);
-  // const handleSubmit = value => {
-  //   if (!searchValue) {
-  //     return setSearchParams({});
-  //   }
-  //   setSearchParams({ query: value });
-  //   fetchMoviesByKeyword();
-  // };
-  // const handleChange = event => {
-  //   setSearchParams({ searchValue: event.target.value });
-  //   setSearchValue(event.target.value, () => {
-  //     console.log(searchValue);
-  //   });
-  // };
+  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [moviesByKeyword, setMoviesByKeyword] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const fetchMoviesByKeyword = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const moviesData = await getMovies('search/movie', { query });
+      setMoviesByKeyword(moviesData.results);
+      setIsLoading(false);
+    } catch (error) {
+      setError('Something went wrong!!!');
+      toast.error(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [query]);
+
+  useEffect(() => {
+    const searchValue = searchParams.get('search');
+    if (searchValue) setQuery(searchValue);
+  }, [searchParams]);
+
+  const handleChange = ({ target: { value } }) => {
+    if (!value) setSearchParams({});
+    setQuery(value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (!query) return setSearchParams({});
+    setSearchParams({ search: query });
+    fetchMoviesByKeyword();
+  };
+
   return (
     <>
-      {/* <SearchForm /> */}
-      {/* {loading && <p>Loading...</p>} */}
-      {/* {error && <p>Error: {error.message}</p>} */}
-      {/* {!loading && !error && <MoviesList movies={moviesByKeyword} />} */}
+      <SearchForm
+        query={query}
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+      />
+      {isLoading && <Loader />}
+      {error && <p>Error: {error.message}</p>}
+      {!isLoading && !error && <MoviesList movies={moviesByKeyword} />}
     </>
   );
 };
