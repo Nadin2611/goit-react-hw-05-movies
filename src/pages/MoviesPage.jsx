@@ -2,7 +2,7 @@
 // import { useSearchParams } from 'react-router-dom';
 
 // // import MoviesList from 'components/MoviesList/MoviesList';
-import SearchForm from 'components/SearchForm/SearchForm';
+// import SearchForm from 'components/SearchForm/SearchForm';
 // import getMovies from 'service/api';
 
 const MoviesPage = () => {

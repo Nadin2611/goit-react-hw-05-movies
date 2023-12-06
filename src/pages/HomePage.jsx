@@ -8,7 +8,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       try {
-        const trendingEndpoint = await getMovies('/trending/movie/week');
+        const trendingEndpoint = await getMovies('trending/movie/week');
 
         console.log(trendingEndpoint);
         setTrendingMovies(trendingEndpoint.results);

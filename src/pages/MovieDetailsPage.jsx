@@ -2,26 +2,43 @@ import { Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import getMovies from 'service/api';
+import { Loader } from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
-import { getMovieDetails } from 'service/api';
+
+const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const [details, setDetails] = useState(null);
+  const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // useEffect(() => {
+  //   if (!movieId) return;
+  // }, [movieId]);
+
   useEffect(() => {
-    if (!movieId) return;
-    setIsLoading(true);
-    setError('');
-    getMovieDetails(movieId)
-      .then(setDetails)
-      .catch(error =>
-        setError('Somesing wrong!!!').finally(() => {
-          setIsLoading(false);
-        })
-      );
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        setError('');
+        const movieDetails = await getMovies(`movie/${movieId}`);
+
+        setDetails(movieDetails);
+        console.log(movieDetails);
+      } catch (error) {
+        setError('Something went wrong!!!');
+        toast.error(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (movieId) {
+      fetchData();
+    }
   }, [movieId]);
 
   useEffect(() => {
@@ -29,15 +46,16 @@ const MovieDetailsPage = () => {
     toast.error(error);
   }, [error]);
 
-  useEffect(() => {
-    if (!movieId) return;
-  }, [movieId]);
-
   return (
     <div>
-      {details && <MovieInfo {...details} />}
+      {details && (
+        <MovieInfo
+          {...details}
+          poster_path={`${BASE_URL}${details.poster_path}`}
+        />
+      )}
       <Outlet />
-      {isLoading && <p>...Loading</p>}
+      {isLoading && <Loader />}
     </div>
   );
 };
