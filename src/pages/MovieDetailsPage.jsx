@@ -27,7 +27,6 @@ const MovieDetailsPage = () => {
         const movieDetails = await getMovies(`movie/${movieId}`);
 
         setDetails(movieDetails);
-        console.log(movieDetails);
       } catch (error) {
         setError('Something went wrong!!!');
         toast.error(error.message);
@@ -46,12 +45,19 @@ const MovieDetailsPage = () => {
     toast.error(error);
   }, [error]);
 
+  const defaulImage =
+    'https://images.pexels.com/photos/6177645/pexels-photo-6177645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+
   return (
     <div>
       {details && (
         <MovieInfo
           {...details}
-          poster_path={`${BASE_URL}${details.poster_path}`}
+          poster_path={
+            details.poster_path
+              ? `${BASE_URL}${details.poster_path}`
+              : defaulImage
+          }
         />
       )}
       <Outlet />

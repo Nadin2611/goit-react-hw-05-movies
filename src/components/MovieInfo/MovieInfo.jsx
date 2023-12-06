@@ -16,6 +16,10 @@ import {
   ListItem,
   StyledLink,
   DescriptionContainer,
+  UserScoreValue,
+  UserScoreWrapper,
+  GenresTitle,
+  GenresWrapper,
 } from './MovieInfo.styled';
 
 const MovieInfo = ({
@@ -35,28 +39,30 @@ const MovieInfo = ({
       <Title>
         {title} ({year})
       </Title>
-
       <Wrapper>
-        {' '}
         {poster_path && (
           <Image src={poster_path} alt="movie-foto" width="100" height="100" />
         )}
         <DescriptionContainer>
-          <UserScore>User Score: {vote}%</UserScore>
+          <UserScoreWrapper>
+            <UserScore>User Score: </UserScore>
+            <UserScoreValue>{vote}%</UserScoreValue>
+          </UserScoreWrapper>
           <Overview>Overview: </Overview>
           <OverviewText>{overview}</OverviewText>
-          {genres && genres.length > 0 && (
-            <Genres>
-              Genres:{' '}
-              {genres.map(genre => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </Genres>
-          )}
+          <GenresWrapper>
+            <GenresTitle>Genres:</GenresTitle>
+            {genres && genres.length > 0 && (
+              <Genres>
+                {genres.map(genre => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </Genres>
+            )}
+          </GenresWrapper>
         </DescriptionContainer>
       </Wrapper>
       <InfoContainer>
-        {' '}
         <AdditionalInfo>Additional information</AdditionalInfo>
         <List>
           <ListItem>

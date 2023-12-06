@@ -21,6 +21,7 @@ const Cast = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    if (!movieId) return;
     const fetchCast = async () => {
       try {
         setIsLoading(true);
@@ -40,6 +41,9 @@ const Cast = () => {
     }
   }, [movieId]);
 
+  const defaulImage =
+    'https://banffventureforum.com/wp-content/uploads/2019/08/no-photo-icon-22.png';
+
   return (
     <Container>
       {isLoading && <Loader />}
@@ -49,7 +53,11 @@ const Cast = () => {
           {cast.map(actor => (
             <CastItem key={actor.id}>
               <ProfileImage
-                src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                src={
+                  actor.profile_path
+                    ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
+                    : defaulImage
+                }
                 alt="profile-foto"
               />
 

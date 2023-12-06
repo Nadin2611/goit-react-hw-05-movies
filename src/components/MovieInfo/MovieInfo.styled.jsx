@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   color: black;
+  line-height: 1.5;
 `;
 
 export const Title = styled.h2`
@@ -31,26 +32,44 @@ export const Image = styled.img`
 export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 10px;
   font-size: 20px;
 `;
 
-export const UserScore = styled.p`
-  margin-bottom: 15px;
+export const UserScoreWrapper = styled.p`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0;
 `;
+
+export const UserScore = styled.p`
+  font-weight: bold;
+`;
+
+export const UserScoreValue = styled.p``;
 
 export const Overview = styled.p`
   margin-bottom: 4px;
+  font-weight: bold;
 `;
 
 export const OverviewText = styled.p`
-  margin-bottom: 15px;
+  font-size: 18px;
   font-style: italic;
+`;
+
+export const GenresWrapper = styled.div``;
+
+export const GenresTitle = styled.h2`
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0;
 `;
 
 export const Genres = styled.ul`
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
   margin-bottom: 10px;
   padding: 0;
   list-style: none;
@@ -58,7 +77,7 @@ export const Genres = styled.ul`
 `;
 
 export const InfoContainer = styled.div`
-  padding-bottom: 20px;
+  margin-top: 4px;
   border-bottom: 1px solid black;
   padding-left: 20px;
 `;

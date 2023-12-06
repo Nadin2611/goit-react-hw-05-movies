@@ -12,6 +12,7 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
+  justify-content: center;
 `;
 
 export const CastItem = styled.li`
@@ -24,7 +25,7 @@ export const CastItem = styled.li`
 
 export const ProfileImage = styled.img`
   width: 200px;
-  height: 300px;
+  height: 280px;
   margin-bottom: 8px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
