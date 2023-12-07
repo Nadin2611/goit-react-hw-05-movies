@@ -6,12 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { routes } from 'routes';
 import Layout from './Layot/Layout';
 
-// import HomePage from 'pages/HomePage';
-// import MovieDetailsPage from 'pages/MovieDetailsPage';
-// import MoviesPage from 'pages/MoviesPage';
-// import Cast from './Cast/Cast';
-// import Reviews from './Reviews/Reviews';
-
 const HomePage = lazy(() => import('../pages/HomePage'));
 const MoviesPage = lazy(() => import('../pages/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('../pages/MovieDetailsPage'));

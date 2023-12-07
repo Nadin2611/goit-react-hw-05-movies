@@ -1,6 +1,17 @@
+import { useSearchParams } from 'react-router-dom';
 import { FormContainer, Form, Label, Input, Button } from './SearchForm.styled';
 
-const SearchForm = ({ query, onSubmit, onChange }) => {
+const SearchForm = ({ onSubmit, onChange }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const query = searchParams.get('search') || '';
+
+  const handleChange = event => {
+    const newQuery = event.target.value;
+    setSearchParams({ search: newQuery });
+    onChange(newQuery);
+  };
+
   return (
     <FormContainer>
       <Form onSubmit={onSubmit}>
@@ -9,7 +20,7 @@ const SearchForm = ({ query, onSubmit, onChange }) => {
           type="text"
           name="search"
           value={query}
-          onChange={onChange}
+          onChange={handleChange}
           placeholder="Enter text to search..."
         />
         <Button type="submit">Search</Button>

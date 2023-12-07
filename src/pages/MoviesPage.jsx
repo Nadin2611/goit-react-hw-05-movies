@@ -44,7 +44,7 @@ const MoviesPage = () => {
     if (searchValue) setQuery(searchValue);
   }, [searchParams]);
 
-  const handleChange = ({ target: { value } }) => {
+  const handleChange = value => {
     if (!value) setSearchParams({});
     setQuery(value);
   };
@@ -62,11 +62,7 @@ const MoviesPage = () => {
 
   return (
     <>
-      <SearchForm
-        query={query}
-        onSubmit={handleSubmit}
-        onChange={handleChange}
-      />
+      <SearchForm onSubmit={handleSubmit} onChange={handleChange} />
       {isLoading && <Loader />}
 
       {!isLoading && <MoviesList movies={moviesByKeyword} />}

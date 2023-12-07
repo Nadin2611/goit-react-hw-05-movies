@@ -25,7 +25,6 @@ export const Image = styled.img`
   width: 300px;
   height: 450px;
   height: auto;
-  margin-bottom: 10px;
   border-radius: 10px;
 `;
 
@@ -36,7 +35,7 @@ export const DescriptionContainer = styled.div`
   font-size: 20px;
 `;
 
-export const UserScoreWrapper = styled.p`
+export const UserScoreWrapper = styled.div`
   display: flex;
   gap: 10px;
   margin-bottom: 0;

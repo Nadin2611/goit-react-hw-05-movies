@@ -6,7 +6,6 @@ const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
-    console.log('Effect is running');
     const fetchTrendingMovies = async () => {
       try {
         const trendingData = await getMovies('trending/movie/week');
