@@ -1,5 +1,8 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { routes } from 'routes';
 import Layout from './Layot/Layout';
 
@@ -29,6 +32,7 @@ export const App = () => {
           <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 };

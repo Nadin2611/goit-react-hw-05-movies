@@ -1,6 +1,3 @@
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Loader } from 'components/Loader/Loader';
 import {
   Container,
   Title,
@@ -30,14 +27,18 @@ const MovieInfo = ({
   genres,
   release_date,
 }) => {
-  const date = new Date(release_date);
-  const year = date.getFullYear();
+  let year = '';
+  if (release_date) {
+    const date = new Date(release_date);
+    year = date.getFullYear();
+  }
+
   const vote = (vote_average * 10).toFixed();
 
   return (
     <Container>
       <Title>
-        {title} ({year})
+        {title} {year && `(${year})`}
       </Title>
       <Wrapper>
         {poster_path && (
@@ -73,10 +74,6 @@ const MovieInfo = ({
           </ListItem>
         </List>
       </InfoContainer>
-
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
     </Container>
   );
 };

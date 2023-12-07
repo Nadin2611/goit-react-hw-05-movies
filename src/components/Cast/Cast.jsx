@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import getMovies from 'service/api';
 
 import {
@@ -18,20 +17,22 @@ const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
 
   useEffect(() => {
     if (!movieId) return;
     const fetchCast = async () => {
       try {
         setIsLoading(true);
-        setError('');
+
         const actorInfo = await getMovies(`movie/${movieId}/credits`);
+
+        if (actorInfo.cast.length === 0) {
+          toast.warn('Sorry, there is no information about the cast.');
+        }
 
         setCast(actorInfo.cast);
       } catch (error) {
-        setError('Something went wrong!!!');
-        toast.error(error.message);
+        toast.error('Something went wrong!!!');
       } finally {
         setIsLoading(false);
       }
@@ -47,7 +48,7 @@ const Cast = () => {
   return (
     <Container>
       {isLoading && <Loader />}
-      {error && <p>Error</p>}
+
       {cast && (
         <List>
           {cast.map(actor => (
