@@ -25,10 +25,6 @@ const Reviews = () => {
 
         const fetchData = await getMovies(`movie/${movieId}/reviews`);
 
-        if (fetchData.results.length === 0) {
-          toast.warn('We don&#x27;t have any reviews for this movie.');
-        }
-
         setReviews(fetchData.results);
       } catch (error) {
         toast.error('Something went wrong!!!');
@@ -45,7 +41,9 @@ const Reviews = () => {
   return (
     <Container>
       {isLoading && <Loader />}
-
+      {reviews.length === 0 && (
+        <p>We don&#x27;t have any reviews for this movie.</p>
+      )}
       {reviews && (
         <ReviewsList>
           {reviews.map(review => (
