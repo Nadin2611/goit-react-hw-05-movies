@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import getMovies from 'service/api';
-import { Loader } from 'components/Loader/Loader';
+
 import {
   Container,
   ReviewsList,
@@ -40,8 +40,7 @@ const Reviews = () => {
 
   return (
     <Container>
-      {isLoading && <Loader />}
-      {reviews.length === 0 && (
+      {!isLoading && reviews.length === 0 && (
         <p>We don&#x27;t have any reviews for this movie.</p>
       )}
       {reviews && (
