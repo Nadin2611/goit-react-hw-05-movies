@@ -4,7 +4,7 @@ import { FormContainer, Form, Label, Input, Button } from './SearchForm.styled';
 const SearchForm = ({ onSubmit, onChange }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const query = searchParams.get('search') || '';
+  const query = searchParams.get('search') ?? '';
 
   const handleChange = event => {
     const newQuery = event.target.value;

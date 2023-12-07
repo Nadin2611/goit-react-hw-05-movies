@@ -1,6 +1,9 @@
+import { useLocation } from 'react-router-dom';
 import { Container, List, MovieItem, MovieLink } from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
+  const location = useLocation();
+
   return (
     <Container>
       <List>
@@ -8,7 +11,7 @@ const MoviesList = ({ movies }) => {
           const year = release_date ? new Date(release_date).getFullYear() : '';
           return (
             <MovieItem key={id}>
-              <MovieLink to={`/movies/${id}`}>
+              <MovieLink to={`/movies/${id}`} state={{ from: location }}>
                 {title ?? name} ({year})
               </MovieLink>
             </MovieItem>

@@ -1,10 +1,11 @@
-import { Outlet, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import getMovies from 'service/api';
 import { Loader } from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
+import BackLink from 'components/BackLink/BackLink';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -12,6 +13,8 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
+  const BackLinkLocationRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,6 +41,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
+      <BackLink to={BackLinkLocationRef.current}>Go back</BackLink>
       {isLoading && <Loader />}
       {details && (
         <MovieInfo
