@@ -1,30 +1,26 @@
 import { useSearchParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { FormContainer, Form, Label, Input, Button } from './SearchForm.styled';
 
-const SearchForm = () => {
+const SearchForm = ({ onSubmit, onChange }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const query = searchParams.get('search') ?? '';
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const query = event.target.search.value.trim().toLowerCase();
-    if (!query) {
-      return toast.warn('Please enter text!');
-    } else {
-      setSearchParams({ search: query });
-    }
+  const handleChange = event => {
+    const newQuery = event.target.value;
+    setSearchParams({ search: newQuery });
+    onChange(newQuery);
   };
 
   return (
     <FormContainer>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={onSubmit}>
         <Label></Label>
         <Input
           type="text"
           name="search"
-          defaultValue={query}
+          value={query}
+          onChange={handleChange}
           placeholder="Enter text to search..."
         />
         <Button type="submit">Search</Button>

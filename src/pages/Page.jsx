@@ -8,11 +8,10 @@ import { Loader } from 'components/Loader/Loader';
 import getMovies from 'service/api';
 
 const MoviesPage = () => {
+  const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const [moviesByKeyword, setMoviesByKeyword] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  const query = searchParams.get('search') ?? '';
 
   const fetchMoviesByKeyword = useCallback(async () => {
     try {
@@ -41,16 +40,32 @@ const MoviesPage = () => {
   }, [query]);
 
   useEffect(() => {
-    if (!query) return;
-    fetchMoviesByKeyword();
-  }, [query]);
+    const searchValue = searchParams.get('search');
+    if (searchValue) setQuery(searchValue);
+  }, [searchParams]);
+
+  const handleChange = value => {
+    if (!value) setSearchParams({});
+    setQuery(value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    if (query.trim() === '') {
+      return toast.warn('Please enter text!');
+    } else {
+      setSearchParams({ search: query });
+      fetchMoviesByKeyword();
+    }
+  };
 
   return (
     <>
-      <SearchForm />
+      <SearchForm onSubmit={handleSubmit} onChange={handleChange} />
       {isLoading && <Loader />}
 
-      {moviesByKeyword.length > 0 && <MoviesList movies={moviesByKeyword} />}
+      {!isLoading && <MoviesList movies={moviesByKeyword} />}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,7 +23,7 @@ export const App = () => {
             <Route path={routes.CAST} element={<Cast />} />
             <Route path={routes.REVIEWS} element={<Reviews />} />
           </Route>
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
       <ToastContainer />
