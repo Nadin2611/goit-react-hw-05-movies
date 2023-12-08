@@ -8,7 +8,7 @@ import { Loader } from 'components/Loader/Loader';
 import getMovies from 'service/api';
 
 const MoviesPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [moviesByKeyword, setMoviesByKeyword] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 

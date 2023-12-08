@@ -17,11 +17,12 @@ export const Label = styled.label``;
 export const Input = styled.input`
   padding: 8px;
   width: 350px;
+  border-radius: 4px;
 
   &:hover,
   &:focus,
   &:not(:placeholder-shown) {
-    border-color: blue;
+    border-color: grey;
   }
 `;
 
@@ -31,7 +32,7 @@ export const Button = styled.button`
   border: 1px solid #383838;
   height: 35px;
   width: 100px;
-  border-radius: 2px;
+  border-radius: 4px;
   color: black;
   cursor: pointer;
 
