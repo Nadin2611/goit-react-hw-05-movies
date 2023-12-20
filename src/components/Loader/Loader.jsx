@@ -10,12 +10,11 @@ export const Loader = () => {
         height: '100vh',
       }}
     >
-      {' '}
       <Watch
         height={80}
         width={80}
         radius={48}
-        color="#3f51b5"
+        color="blue"
         ariaLabel="watch-loading"
         visible={true}
       />
