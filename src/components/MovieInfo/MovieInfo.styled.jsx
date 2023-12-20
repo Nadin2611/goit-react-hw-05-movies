@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  color: black;
+  color: white;
   line-height: 1.5;
 `;
 
@@ -17,8 +17,16 @@ export const Title = styled.h2`
 export const Wrapper = styled.div`
   display: flex;
   gap: 40px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(
+      to right,
+      rgba(31.5, 31.5, 31.5, 0.8) 20%,
+      rgba(31.5, 31.5, 31.5, 0) 50%
+    ),
+    ${props => (props.background ? `url(${props.background})` : 'none')};
+  background-size: cover;
+  background-position: center;
 `;
 
 export const Image = styled.img`
@@ -76,8 +84,9 @@ export const Genres = styled.ul`
 `;
 
 export const InfoContainer = styled.div`
-  margin-top: 4px;
-  border-bottom: 1px solid black;
+  margin-top: 20px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
   padding-left: 20px;
 `;
 
@@ -86,7 +95,13 @@ export const AdditionalInfo = styled.p`
   font-size: 20px;
 `;
 
-export const List = styled.ul``;
+export const List = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 50px;
+`;
 
 export const ListItem = styled.li`
   font-size: 18px;
@@ -94,7 +109,22 @@ export const ListItem = styled.li`
 `;
 
 export const StyledLink = styled(Link)`
-  &:hover {
-    color: red;
+  padding: 10px 20px;
+  border-radius: 18px;
+  font-size: 24px;
+  text-decoration: none;
+  color: blue;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: blue;
+  }
+
+  &.active {
+    color: white;
+    background-color: blue;
   }
 `;

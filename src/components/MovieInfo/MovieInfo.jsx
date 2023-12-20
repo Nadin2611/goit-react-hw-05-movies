@@ -23,6 +23,7 @@ const MovieInfo = ({
   title,
   name,
   poster_path,
+  backdrop_path,
   vote_average,
   overview,
   genres,
@@ -41,7 +42,7 @@ const MovieInfo = ({
       <Title>
         {title ?? name} {year && `(${year})`}
       </Title>
-      <Wrapper>
+      <Wrapper background={backdrop_path}>
         {poster_path && (
           <Image src={poster_path} alt="movie-foto" width="100" height="100" />
         )}
@@ -65,7 +66,7 @@ const MovieInfo = ({
         </DescriptionContainer>
       </Wrapper>
       <InfoContainer>
-        <AdditionalInfo>Additional information</AdditionalInfo>
+        <AdditionalInfo></AdditionalInfo>
         <List>
           <ListItem>
             <StyledLink to="cast">Cast</StyledLink>

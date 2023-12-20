@@ -17,7 +17,7 @@ export const List = styled.ul`
 
 export const CastItem = styled.li`
   margin-bottom: 10px;
-  border: 1px solid gainsboro;
+  border: 1px solid white;
   border-radius: 10px;
   padding-bottom: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -25,7 +25,7 @@ export const CastItem = styled.li`
 
 export const ProfileImage = styled.img`
   width: 200px;
-  height: 280px;
+  height: 270px;
   margin-bottom: 8px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -35,10 +35,11 @@ export const ActorName = styled.h2`
   font-size: 18px;
   margin-bottom: 4px;
   text-align: center;
+  color: white;
 `;
 
 export const CharacterName = styled.p`
   font-size: 14px;
-  color: gray;
+  color: white;
   text-align: center;
 `;

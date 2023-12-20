@@ -51,6 +51,11 @@ const MovieDetailsPage = () => {
               ? `${BASE_URL}${details.poster_path}`
               : defaulImage
           }
+          backdrop_path={
+            details.backdrop_path
+              ? `${BASE_URL}${details.backdrop_path}`
+              : defaulImage
+          }
         />
       )}
       <Suspense fallback={<Loader />}>

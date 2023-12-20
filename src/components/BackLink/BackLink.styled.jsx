@@ -5,12 +5,13 @@ export const StyledLink = styled(Link)`
   display: flex;
   gap: 10px;
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 18px;
-  padding: 10px;
+  padding: 10px 20px;
   align-items: center;
 
-  &:hover {
-    color: red;
+  &:hover,
+  &:focus {
+    color: blue;
   }
 `;

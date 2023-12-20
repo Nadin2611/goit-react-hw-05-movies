@@ -48,7 +48,7 @@ export const Button = styled.button`
   font-weight: 500;
   border: none;
   position: absolute;
-  right: 0;
+  right: 2px;
   transition: background-color 0.3s, color 0.3s;
 
   &:hover,
