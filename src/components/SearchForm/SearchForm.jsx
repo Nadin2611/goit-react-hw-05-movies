@@ -20,14 +20,15 @@ const SearchForm = () => {
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit}>
-        <Label></Label>
-        <Input
-          type="text"
-          name="search"
-          defaultValue={query}
-          placeholder="Enter movie to search..."
-        />
-        <Button type="submit">Search</Button>
+        <Label>
+          <Input
+            type="text"
+            name="search"
+            defaultValue={query}
+            placeholder="Enter movie to search..."
+          />
+          <Button type="submit">Search</Button>
+        </Label>
       </Form>
     </FormContainer>
   );
