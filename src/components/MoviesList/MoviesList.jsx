@@ -1,5 +1,17 @@
 import { useLocation } from 'react-router-dom';
-import { Container, List, MovieItem, MovieLink } from './MoviesList.styled';
+import { BASE_URL } from 'pages/MovieDetailsPage';
+import {
+  Container,
+  List,
+  MovieItem,
+  MovieLink,
+  MovieImage,
+  MovieRating,
+  MovieWrapper,
+  MovieInfoWrapper,
+  MovieTitle,
+  MovieYear,
+} from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();
@@ -7,16 +19,36 @@ const MoviesList = ({ movies }) => {
   return (
     <Container>
       <List>
-        {movies.map(({ id, name, title, release_date }) => {
-          const year = release_date ? new Date(release_date).getFullYear() : '';
-          return (
-            <MovieItem key={id}>
-              <MovieLink to={`/movies/${id}`} state={{ from: location }}>
-                {title ?? name} ({year})
-              </MovieLink>
-            </MovieItem>
-          );
-        })}
+        {movies.map(
+          ({ id, name, title, release_date, poster_path, vote_average }) => {
+            const year = release_date
+              ? new Date(release_date).getFullYear()
+              : '';
+            const vote = (vote_average * 10).toFixed();
+            const imageURL = `${BASE_URL}${poster_path}`;
+            return (
+              <MovieItem key={id}>
+                <MovieLink to={`/movies/${id}`} state={{ from: location }}>
+                  <MovieWrapper>
+                    {poster_path && (
+                      <MovieImage
+                        src={imageURL}
+                        alt="movie-foto"
+                        width="250"
+                        height="380"
+                      />
+                    )}
+                    <MovieRating>{vote}%</MovieRating>
+                  </MovieWrapper>
+                  <MovieInfoWrapper>
+                    <MovieTitle> {title ?? name}</MovieTitle>
+                    <MovieYear>({year})</MovieYear>
+                  </MovieInfoWrapper>
+                </MovieLink>
+              </MovieItem>
+            );
+          }
+        )}
       </List>
     </Container>
   );

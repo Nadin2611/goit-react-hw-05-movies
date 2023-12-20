@@ -25,7 +25,7 @@ const SearchForm = () => {
           type="text"
           name="search"
           defaultValue={query}
-          placeholder="Enter text to search..."
+          placeholder="Enter movie to search..."
         />
         <Button type="submit">Search</Button>
       </Form>

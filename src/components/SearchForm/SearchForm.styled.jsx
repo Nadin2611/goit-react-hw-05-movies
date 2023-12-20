@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 60px;
 `;
 
 export const Form = styled.form`
@@ -15,9 +16,9 @@ export const Form = styled.form`
 export const Label = styled.label``;
 
 export const Input = styled.input`
-  padding: 8px;
+  padding: 10px 20px;
   width: 350px;
-  border-radius: 4px;
+  border-radius: 18px;
 
   &:hover,
   &:focus,
@@ -27,17 +28,23 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  padding: 8px;
-  background-color: #f5f5f5;
-  border: 1px solid #383838;
-  height: 35px;
-  width: 100px;
-  border-radius: 4px;
-  color: black;
-  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 18px;
+  font-size: 24px;
+  text-decoration: none;
+  color: blue;
+  font-weight: 500;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
 
   &:hover,
   &:focus {
-    background-color: #c8c8c8;
+    color: white;
+    background-color: blue;
+  }
+
+  &.active {
+    color: white;
+    background-color: blue;
   }
 `;

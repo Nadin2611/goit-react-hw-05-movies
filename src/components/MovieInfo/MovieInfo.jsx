@@ -21,6 +21,7 @@ import {
 
 const MovieInfo = ({
   title,
+  name,
   poster_path,
   vote_average,
   overview,
@@ -38,7 +39,7 @@ const MovieInfo = ({
   return (
     <Container>
       <Title>
-        {title} {year && `(${year})`}
+        {title ?? name} {year && `(${year})`}
       </Title>
       <Wrapper>
         {poster_path && (

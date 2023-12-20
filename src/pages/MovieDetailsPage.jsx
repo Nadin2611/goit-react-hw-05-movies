@@ -7,7 +7,7 @@ import { Loader } from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
 import BackLink from 'components/BackLink/BackLink';
 
-const BASE_URL = 'https://image.tmdb.org/t/p/w500';
+export const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
