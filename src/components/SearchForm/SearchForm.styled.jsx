@@ -23,6 +23,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   padding: 10px 20px;
   width: 600px;
+  color: white;
   border-radius: 18px;
   border: none;
   font-size: 20px;
@@ -43,12 +44,12 @@ export const Button = styled.button`
   border-radius: 18px;
   font-size: 20px;
   text-decoration: none;
-  background-color: lightgray;
+  background-color: white;
   color: blue;
   font-weight: 500;
   border: none;
   position: absolute;
-  right: 2px;
+  right: 1px;
   transition: background-color 0.3s, color 0.3s;
 
   &:hover,
