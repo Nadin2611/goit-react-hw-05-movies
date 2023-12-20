@@ -17,7 +17,7 @@ export const Title = styled.h2`
 export const Wrapper = styled.div`
   display: flex;
   gap: 40px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
   background: linear-gradient(
       to right,

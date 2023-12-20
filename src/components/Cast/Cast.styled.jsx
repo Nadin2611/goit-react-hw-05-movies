@@ -33,7 +33,6 @@ export const ProfileImage = styled.img`
 
 export const ActorName = styled.h2`
   font-size: 18px;
-  margin-bottom: 4px;
   text-align: center;
   color: white;
 `;
@@ -42,4 +41,6 @@ export const CharacterName = styled.p`
   font-size: 14px;
   color: white;
   text-align: center;
+  max-width: 200px;
+  padding: 4px;
 `;

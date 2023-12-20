@@ -18,6 +18,8 @@ const HomePage = () => {
     fetchTrendingMovies();
   }, []);
 
+  console.log(trendingMovies);
+
   return (
     <div>
       <h1>Trending today</h1>

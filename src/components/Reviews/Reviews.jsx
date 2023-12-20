@@ -10,12 +10,14 @@ import {
   ReviewsItem,
   ReviewersName,
   Review,
+  ShowMoreButton,
 } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showFullText, setShowFullText] = useState(false);
 
   useEffect(() => {
     if (!movieId) return;
@@ -38,6 +40,13 @@ const Reviews = () => {
     fetchReviews();
   }, [movieId]);
 
+  const handleShowMore = reviewId => {
+    setShowFullText(prevShowFullText => ({
+      ...prevShowFullText,
+      [reviewId]: !prevShowFullText[reviewId],
+    }));
+  };
+
   return (
     <Container>
       {!isLoading && reviews.length === 0 && (
@@ -48,7 +57,16 @@ const Reviews = () => {
           {reviews.map(review => (
             <ReviewsItem key={review.id}>
               <ReviewersName>{review.author}</ReviewersName>
-              <Review>{review.content}</Review>
+              <Review>
+                {showFullText[review.id]
+                  ? review.content
+                  : `${review.content.slice(0, 200)}...`}
+              </Review>
+              {!showFullText[review.id] && (
+                <ShowMoreButton onClick={() => handleShowMore(review.id)}>
+                  Show More...
+                </ShowMoreButton>
+              )}
             </ReviewsItem>
           ))}
         </ReviewsList>
