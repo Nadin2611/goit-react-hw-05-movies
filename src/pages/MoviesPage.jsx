@@ -43,7 +43,7 @@ const MoviesPage = () => {
   useEffect(() => {
     if (!query) return;
     fetchMoviesByKeyword();
-  }, [query]);
+  }, [fetchMoviesByKeyword, query]);
 
   return (
     <>
