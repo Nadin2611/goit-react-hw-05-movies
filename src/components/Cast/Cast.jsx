@@ -12,6 +12,7 @@ import {
   ProfileImage,
 } from './Cast.styled';
 import { Loader } from 'components/Loader/Loader';
+import { StyledLink } from 'components/MovieInfo/MovieInfo.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -31,6 +32,7 @@ const Cast = () => {
         }
 
         setCast(actorInfo.cast);
+        console.log(actorInfo.cast);
       } catch (error) {
         toast.error('Something went wrong!!!');
       } finally {
@@ -51,20 +53,22 @@ const Cast = () => {
 
       {cast && (
         <List>
-          {cast.map(actor => (
-            <CastItem key={actor.id}>
-              <ProfileImage
-                src={
-                  actor.profile_path
-                    ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
-                    : defaulImage
-                }
-                alt="profile-foto"
-              />
+          {cast.map(person => (
+            <StyledLink key={person.id} to={`/person/${person.id}`}>
+              <CastItem>
+                <ProfileImage
+                  src={
+                    person.profile_path
+                      ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+                      : defaulImage
+                  }
+                  alt="profile-foto"
+                />
 
-              <ActorName>{actor.name}</ActorName>
-              <CharacterName>{actor.character}</CharacterName>
-            </CastItem>
+                <ActorName>{person.name}</ActorName>
+                <CharacterName>{person.character}</CharacterName>
+              </CastItem>
+            </StyledLink>
           ))}
         </List>
       )}

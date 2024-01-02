@@ -4,7 +4,7 @@ import MoviesList from 'components/MoviesList/MoviesList';
 
 const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  console.log(trendingMovies);
+
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       try {
@@ -17,8 +17,6 @@ const HomePage = () => {
     };
     fetchTrendingMovies();
   }, []);
-
-  console.log(trendingMovies);
 
   return (
     <div>

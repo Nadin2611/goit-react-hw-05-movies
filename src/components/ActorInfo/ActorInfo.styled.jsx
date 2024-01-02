@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* Your container styles here */
+  color: white;
 `;
 
 export const FotoContainer = styled.div`
   /* Your FotoContainer styles here */
 `;
+
+export const ActorFoto = styled.img``;
 
 export const ActorDetails = styled.div`
   /* Your ActorDetails styles here */
@@ -18,7 +20,7 @@ export const Gender = styled.div`
   /* Your Gender styles here */
 `;
 
-export const Birthday = styled.spdivan`
+export const Birthday = styled.div`
   /* Your Birthday styles here */
 `;
 

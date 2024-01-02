@@ -28,18 +28,36 @@ const ActorInfo = ({
   biography,
 }) => {
   const getGenderString = gender => {
-    return gender === 1 ? 'Female' : gender === 2 ? 'Male' : 'Unknown';
+    switch (gender) {
+      case 0:
+        return 'Not set / not specified';
+      case 1:
+        return 'Female';
+      case 2:
+        return 'Male';
+      case 3:
+        return 'Non-binary';
+      default:
+        return 'Unknown';
+    }
   };
+
+  const defaulImage =
+    'https://banffventureforum.com/wp-content/uploads/2019/08/no-photo-icon-22.png';
 
   return (
     <Container>
       <FotoContainer>
         {profile_path && (
           <ActorFoto
-            src={profile_path}
+            src={
+              profile_path
+                ? `https://image.tmdb.org/t/p/w500/${profile_path}`
+                : defaulImage
+            }
             alt="actor-foto"
-            width="100"
-            height="100"
+            width="300"
+            height="450"
           />
         )}
         <ActorDetails>
