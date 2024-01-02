@@ -22,7 +22,6 @@ const MovieDetailsPage = () => {
         setIsLoading(true);
 
         const movieDetails = await getMovies(`movie/${movieId}`);
-        console.log(movieDetails);
 
         setDetails(movieDetails);
       } catch (error) {
