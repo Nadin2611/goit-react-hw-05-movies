@@ -10,9 +10,9 @@ import {
   Container,
   List,
   ProfileImage,
+  StyledLinkActor,
 } from './Cast.styled';
 import { Loader } from 'components/Loader/Loader';
-import { StyledLink } from 'components/MovieInfo/MovieInfo.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -54,7 +54,7 @@ const Cast = () => {
       {cast && (
         <List>
           {cast.map(person => (
-            <StyledLink key={person.id} to={`/person/${person.id}`}>
+            <StyledLinkActor key={person.id} to={`/person/${person.id}`}>
               <CastItem>
                 <ProfileImage
                   src={
@@ -68,7 +68,7 @@ const Cast = () => {
                 <ActorName>{person.name}</ActorName>
                 <CharacterName>{person.character}</CharacterName>
               </CastItem>
-            </StyledLink>
+            </StyledLinkActor>
           ))}
         </List>
       )}

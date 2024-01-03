@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -43,4 +44,14 @@ export const CharacterName = styled.p`
   text-align: center;
   max-width: 200px;
   padding: 4px;
+`;
+
+export const StyledLinkActor = styled(Link)`
+  text-decoration: none;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;

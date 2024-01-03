@@ -114,9 +114,9 @@ const ActorInfo = ({
           <ActorDetailsTitle>Biografy</ActorDetailsTitle>
           <Biografy>
             {biography &&
-              (showFullText ? biography : `${biography.slice(0, 400)}...`)}
+              (showFullText ? biography : `${biography.slice(0, 1000)}`)}
           </Biografy>
-          {biography && biography.length > 400 && (
+          {biography && biography.length > 1000 && (
             <ShowMoreButton onClick={handleShowMore}>
               {showFullText ? 'Show Less' : 'Show More...'}
             </ShowMoreButton>
