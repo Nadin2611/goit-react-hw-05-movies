@@ -12,6 +12,7 @@ export const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState(null);
+  const [videos, setVideos] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const BackLinkLocationRef = useRef(location.state?.from ?? '/');
@@ -24,6 +25,11 @@ const MovieDetailsPage = () => {
         const movieDetails = await getMovies(`movie/${movieId}`);
 
         setDetails(movieDetails);
+
+        const movieVideos = await getMovies(`movie/${movieId}/videos`);
+        setVideos(movieVideos.results);
+
+        console.log(movieVideos.results);
       } catch (error) {
         toast.error('Something went wrong!!!');
       } finally {
@@ -35,6 +41,7 @@ const MovieDetailsPage = () => {
     }
   }, [movieId]);
 
+  console.log(videos);
   const defaulImage =
     'https://images.pexels.com/photos/6177645/pexels-photo-6177645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
 
@@ -45,6 +52,7 @@ const MovieDetailsPage = () => {
       {details && (
         <MovieInfo
           {...details}
+          videos={videos}
           poster_path={
             details.poster_path
               ? `${BASE_URL}${details.poster_path}`
@@ -57,6 +65,7 @@ const MovieDetailsPage = () => {
           }
         />
       )}
+
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

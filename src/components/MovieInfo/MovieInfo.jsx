@@ -1,3 +1,4 @@
+import MovieVideo from 'components/MovieVideo/MovieVideo';
 import {
   Container,
   Title,
@@ -28,6 +29,7 @@ const MovieInfo = ({
   overview,
   genres,
   release_date,
+  videos,
 }) => {
   let year = '';
   if (release_date) {
@@ -63,6 +65,19 @@ const MovieInfo = ({
               </Genres>
             )}
           </GenresWrapper>
+          {videos && videos.length > 0 && (
+            <div>
+              {videos.map(video => (
+                <MovieVideo
+                  key={video.id}
+                  name={video.name}
+                  type={video.type}
+                  official={video.official}
+                  videoKey={video.key}
+                />
+              ))}
+            </div>
+          )}
         </DescriptionContainer>
       </Wrapper>
       <InfoContainer>

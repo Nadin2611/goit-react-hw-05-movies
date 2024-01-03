@@ -16,7 +16,7 @@ export const Title = styled.h2`
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: 40px;
+  gap: 50px;
   padding: 30px;
   border-radius: 10px;
   background: linear-gradient(
@@ -30,9 +30,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 300px;
-  height: 450px;
-  height: auto;
+  width: 400px;
+  height: 550px;
+
   border-radius: 10px;
 `;
 
