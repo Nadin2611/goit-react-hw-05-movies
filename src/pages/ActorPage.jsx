@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 const ActorPage = () => {
   const { personId } = useParams();
   const [personInfo, setPersonInfo] = useState(null);
+
   console.log(personId);
 
   useEffect(() => {

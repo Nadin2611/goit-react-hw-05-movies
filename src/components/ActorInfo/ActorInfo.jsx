@@ -1,9 +1,11 @@
-import { Title } from 'components/MovieInfo/MovieInfo.styled';
+import { useState } from 'react';
+
 import {
   Container,
   FotoContainer,
   ActorFoto,
   ActorDetails,
+  ActorDetailsTitle,
   Gender,
   Birthday,
   BirthdayPlace,
@@ -16,6 +18,7 @@ import {
   InfoWrapper,
   ActorInfoWrapper,
 } from './ActorInfo.styled';
+import { ShowMoreButton } from 'components/Reviews/Reviews.styled';
 
 const ActorInfo = ({
   profile_path,
@@ -27,6 +30,8 @@ const ActorInfo = ({
   name,
   biography,
 }) => {
+  const [showFullText, setShowFullText] = useState(false);
+
   const getGenderString = gender => {
     switch (gender) {
       case 0:
@@ -45,6 +50,12 @@ const ActorInfo = ({
   const defaulImage =
     'https://banffventureforum.com/wp-content/uploads/2019/08/no-photo-icon-22.png';
 
+  const handleShowMore = () => {
+    setShowFullText(!showFullText);
+  };
+
+  console.log(biography);
+
   return (
     <Container>
       <FotoContainer>
@@ -61,7 +72,7 @@ const ActorInfo = ({
           />
         )}
         <ActorDetails>
-          <Title>Personal information</Title>
+          <ActorDetailsTitle>Personal information</ActorDetailsTitle>
 
           <InfoWrapper>
             <InfoTitle>Gender</InfoTitle>
@@ -98,10 +109,18 @@ const ActorInfo = ({
         </ActorDetails>
       </FotoContainer>
       <ActorInfoWrapper>
-        <ActorName>{name}</ActorName>{' '}
+        <ActorName>{name}</ActorName>
         <BiografyContainer>
-          <Title>Biografy</Title>
-          <Biografy>{biography}</Biografy>
+          <ActorDetailsTitle>Biografy</ActorDetailsTitle>
+          <Biografy>
+            {biography &&
+              (showFullText ? biography : `${biography.slice(0, 400)}...`)}
+          </Biografy>
+          {biography && biography.length > 400 && (
+            <ShowMoreButton onClick={handleShowMore}>
+              {showFullText ? 'Show Less' : 'Show More...'}
+            </ShowMoreButton>
+          )}
         </BiografyContainer>
       </ActorInfoWrapper>
     </Container>
