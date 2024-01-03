@@ -30,8 +30,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 400px;
-  height: 550px;
+  width: 350px;
+  height: 520px;
 
   border-radius: 10px;
 `;
