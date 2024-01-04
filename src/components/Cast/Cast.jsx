@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { handleScroll } from 'service/scroll';
 import getMovies from 'service/api';
 import { defaultImageActor } from 'service/defaultImages';
 
@@ -37,6 +38,7 @@ const Cast = () => {
         toast.error('Something went wrong!!!');
       } finally {
         setIsLoading(false);
+        handleScroll('actors');
       }
     };
     if (movieId) {
@@ -49,7 +51,7 @@ const Cast = () => {
       {isLoading && <Loader />}
 
       {cast && (
-        <List>
+        <List name="actors">
           {cast.map(person => (
             <StyledLinkActor key={person.id} to={`/person/${person.id}`}>
               <CastItem>

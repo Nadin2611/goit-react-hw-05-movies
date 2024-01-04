@@ -26,6 +26,7 @@ const SearchForm = () => {
             name="search"
             defaultValue={query}
             placeholder="Enter movie to search..."
+            autoComplete="off"
           />
           <Button type="submit">Search</Button>
         </Label>

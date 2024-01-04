@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
+import { handleScroll } from 'service/scroll';
 import getMovies from 'service/api';
 
 import {
@@ -32,6 +32,7 @@ const Reviews = () => {
         toast.error('Something went wrong!!!');
       } finally {
         setIsLoading(false);
+        handleScroll('reviews');
       }
     };
     if (!movieId) {
@@ -53,7 +54,7 @@ const Reviews = () => {
         <p>We don&#x27;t have any reviews for this movie.</p>
       )}
       {reviews && (
-        <ReviewsList>
+        <ReviewsList name="reviews">
           {reviews.map(review => (
             <ReviewsItem key={review.id}>
               <ReviewersName>{review.author}</ReviewersName>
