@@ -17,6 +17,12 @@ export const List = styled.ul`
 export const ActorItem = styled.li`
   margin-bottom: 10px;
   width: 250px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
 export const ActorLink = styled(Link)`
@@ -30,12 +36,6 @@ export const ActorLink = styled(Link)`
 `;
 export const ActorImage = styled.img`
   border-radius: 10px;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
 `;
 
 export const ActorWrapper = styled.div`

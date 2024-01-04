@@ -33,6 +33,16 @@ const ActorInfo = ({
 }) => {
   const [showFullText, setShowFullText] = useState(false);
 
+  let year = '';
+  if (birthday && deathday) {
+    const birthDate = new Date(birthday);
+    const deathDate = new Date(deathday);
+    year = deathDate.getFullYear() - birthDate.getFullYear();
+  } else if (birthday && !deathday) {
+    const birthDate = new Date(birthday);
+    year = new Date().getFullYear() - birthDate.getFullYear();
+  }
+
   const getGenderString = gender => {
     switch (gender) {
       case 0:
@@ -55,18 +65,17 @@ const ActorInfo = ({
   return (
     <Container>
       <FotoContainer>
-        {profile_path && (
-          <ActorFoto
-            src={
-              profile_path
-                ? `https://image.tmdb.org/t/p/w500/${profile_path}`
-                : defaultImageActor
-            }
-            alt="actor-foto"
-            width="300"
-            height="450"
-          />
-        )}
+        <ActorFoto
+          src={
+            profile_path
+              ? `https://image.tmdb.org/t/p/w500/${profile_path}`
+              : defaultImageActor
+          }
+          alt="actor-foto"
+          width="300"
+          height="450"
+        />
+
         <ActorDetails>
           <ActorDetailsTitle>Personal information</ActorDetailsTitle>
 
@@ -78,7 +87,9 @@ const ActorInfo = ({
           {birthday && (
             <InfoWrapper>
               <InfoTitle>Birthday</InfoTitle>
-              <Birthday>{birthday}</Birthday>
+              <Birthday>
+                {birthday} ({year} years old)
+              </Birthday>
             </InfoWrapper>
           )}
 

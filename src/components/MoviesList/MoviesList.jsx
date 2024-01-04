@@ -22,9 +22,10 @@ const MoviesList = ({ movies }) => {
       <List>
         {movies.map(
           ({ id, name, title, release_date, poster_path, vote_average }) => {
-            const year = release_date
-              ? new Date(release_date).getFullYear()
-              : '';
+            if (!release_date) {
+              return null;
+            }
+            const year = new Date(release_date).getFullYear();
             const vote = (vote_average * 10).toFixed();
             const imageURL = `${BASE_URL}${poster_path}`;
             return (

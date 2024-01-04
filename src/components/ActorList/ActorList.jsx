@@ -18,7 +18,7 @@ const ActorList = ({ persons }) => {
   return (
     <Container>
       <List>
-        {persons.map(({ id, name, profile_path, popularity }) => {
+        {persons.map(({ id, name, profile_path }) => {
           const imageURL = `${BASE_URL}${profile_path}`;
           return (
             <ActorItem key={id}>
