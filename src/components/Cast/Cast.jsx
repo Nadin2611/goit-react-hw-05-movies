@@ -33,7 +33,6 @@ const Cast = () => {
         }
 
         setCast(actorInfo.cast);
-        console.log(actorInfo.cast);
       } catch (error) {
         toast.error('Something went wrong!!!');
       } finally {
