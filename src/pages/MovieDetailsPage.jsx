@@ -17,6 +17,12 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const BackLinkLocationRef = useRef(location.state?.from ?? '/');
 
+  const findFirstOfficialTrailer = videos => {
+    return videos?.find(
+      video => video.type === 'Trailer' && video.official === true
+    );
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,9 +47,10 @@ const MovieDetailsPage = () => {
     }
   }, [movieId]);
 
-  console.log(videos);
   const defaulImage =
     'https://images.pexels.com/photos/6177645/pexels-photo-6177645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+
+  const filteredVideos = findFirstOfficialTrailer(videos);
 
   return (
     <div>
@@ -53,6 +60,7 @@ const MovieDetailsPage = () => {
         <MovieInfo
           {...details}
           videos={videos}
+          firstOfficialTrailer={filteredVideos}
           poster_path={
             details.poster_path
               ? `${BASE_URL}${details.poster_path}`

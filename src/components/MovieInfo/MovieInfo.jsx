@@ -30,6 +30,7 @@ const MovieInfo = ({
   genres,
   release_date,
   videos,
+  firstOfficialTrailer,
 }) => {
   let year = '';
   if (release_date) {
@@ -65,18 +66,14 @@ const MovieInfo = ({
               </Genres>
             )}
           </GenresWrapper>
-          {videos && videos.length > 0 && (
-            <div>
-              {videos.map(video => (
-                <MovieVideo
-                  key={video.id}
-                  name={video.name}
-                  type={video.type}
-                  official={video.official}
-                  videoKey={video.key}
-                />
-              ))}
-            </div>
+
+          {firstOfficialTrailer && (
+            <MovieVideo
+              name={firstOfficialTrailer.name}
+              type={firstOfficialTrailer.type}
+              official={firstOfficialTrailer.official}
+              videoKey={firstOfficialTrailer.key}
+            />
           )}
         </DescriptionContainer>
       </Wrapper>
