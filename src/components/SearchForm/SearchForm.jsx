@@ -14,6 +14,7 @@ const SearchForm = () => {
       return toast.warn('Please enter text!');
     } else {
       setSearchParams({ search: query });
+      event.target.reset();
     }
   };
 

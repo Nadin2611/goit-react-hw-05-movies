@@ -14,7 +14,7 @@ export const Header = styled.header`
   gap: 12px;
   margin-bottom: 10px;
   border-bottom: 1px solid white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
   font-size: 30px;
 
   > ul {

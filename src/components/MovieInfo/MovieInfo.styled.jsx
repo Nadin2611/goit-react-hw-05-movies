@@ -43,6 +43,13 @@ export const DescriptionContainer = styled.div`
   font-size: 20px;
 `;
 
+export const DescriptionWrapper = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+`;
+
 export const UserScoreWrapper = styled.div`
   display: flex;
   gap: 10px;

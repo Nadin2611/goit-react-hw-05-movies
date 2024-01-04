@@ -18,6 +18,7 @@ import {
   UserScoreWrapper,
   GenresTitle,
   GenresWrapper,
+  DescriptionWrapper,
 } from './MovieInfo.styled';
 
 const MovieInfo = ({
@@ -42,13 +43,16 @@ const MovieInfo = ({
 
   return (
     <Container>
-      <Title>
-        {title ?? name} {year && `(${year})`}
-      </Title>
       <Wrapper background={backdrop_path}>
         {poster_path && (
           <Image src={poster_path} alt="movie-foto" width="100" height="100" />
         )}
+      </Wrapper>
+      <Title>
+        {title ?? name} {year && `(${year})`}
+      </Title>
+      <DescriptionWrapper>
+        {' '}
         <DescriptionContainer>
           <UserScoreWrapper>
             <UserScore>User Score: </UserScore>
@@ -66,17 +70,17 @@ const MovieInfo = ({
               </Genres>
             )}
           </GenresWrapper>
-
-          {firstOfficialTrailer && (
-            <MovieVideo
-              name={firstOfficialTrailer.name}
-              type={firstOfficialTrailer.type}
-              official={firstOfficialTrailer.official}
-              videoKey={firstOfficialTrailer.key}
-            />
-          )}
         </DescriptionContainer>
-      </Wrapper>
+        {firstOfficialTrailer && (
+          <MovieVideo
+            name={firstOfficialTrailer.name}
+            type={firstOfficialTrailer.type}
+            official={firstOfficialTrailer.official}
+            videoKey={firstOfficialTrailer.key}
+          />
+        )}
+      </DescriptionWrapper>
+
       <InfoContainer>
         <AdditionalInfo></AdditionalInfo>
         <List>
