@@ -1,52 +1,79 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import SearchForm from 'components/SearchForm/SearchForm';
+import ActorList from 'components/ActorList/ActorList';
+import { Loader } from 'components/Loader/Loader';
 import getMovies from 'service/api';
-import ActorInfo from 'components/ActorInfo/ActorInfo';
-import { useParams } from 'react-router-dom';
 
 const ActorPage = () => {
-  const { personId } = useParams();
-  const [personInfo, setPersonInfo] = useState(null);
+  const [searchParams] = useSearchParams();
+  const [actorsByKeyword, setActorsByKeyword] = useState([]);
+  const [popularActors, setPopularActors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  console.log(personId);
+  const query = searchParams.get('search') ?? '';
 
   useEffect(() => {
-    const fetchActorInfo = async () => {
+    const fetchPopularActors = async () => {
       try {
-        const personData = await getMovies(`person/${personId}`);
+        const personData = await getMovies('person/popular');
 
-        setPersonInfo(personData);
-        console.log(personData.gender);
+        setPopularActors(personData.results);
       } catch (error) {
-        console.error('Error fetching actor information:', error.message);
+        console.error('Error fetching popular actors:', error.message);
       }
     };
-    fetchActorInfo();
-  }, [personId]);
+    fetchPopularActors();
+  }, []);
 
-  const {
-    profile_path,
-    gender,
-    birthday,
-    deathday,
-    place_of_birth,
-    also_known_as,
-    name,
-    biography,
-  } = personInfo || {};
+  const fetchActorsByKeyword = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const actorsData = await getMovies('search/person', { query });
+
+      if (actorsData.results.length === 0) {
+        toast.warn(
+          'Sorry, there are no movies matching your search query. Please try again.'
+        );
+      } else {
+        toast.info(
+          `Found ${actorsData.results.length} ${
+            actorsData.results.length === 1 ? 'person' : 'persons'
+          }.`
+        );
+      }
+
+      setActorsByKeyword(actorsData.results);
+      setIsLoading(false);
+    } catch (error) {
+      toast.error('Something went wrong!!!');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [query]);
+
+  useEffect(() => {
+    if (!query) return;
+    fetchActorsByKeyword();
+  }, [fetchActorsByKeyword, query]);
 
   return (
-    <div>
-      <ActorInfo
-        profile_path={profile_path}
-        gender={gender}
-        birthday={birthday}
-        deathday={deathday}
-        place_of_birth={place_of_birth}
-        also_known_as={also_known_as}
-        name={name}
-        biography={biography}
-      />
-    </div>
+    <>
+      <SearchForm />
+      {isLoading && <Loader />}
+
+      {actorsByKeyword.length > 0 && <ActorList persons={actorsByKeyword} />}
+      {query === '' && (
+        <>
+          <h1>Popular actors</h1>
+          <div>
+            <ActorList persons={popularActors} />
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

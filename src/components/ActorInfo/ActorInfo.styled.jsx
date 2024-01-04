@@ -56,9 +56,7 @@ export const BiografyContainer = styled.div`
   /* Your BiografyContainer styles here */
 `;
 
-export const ActorName = styled.h1`
-  /* Your ActorName styles here */
-`;
+export const ActorName = styled.h1``;
 
 export const Biografy = styled.p`
   font-size: 16px;
@@ -68,6 +66,10 @@ export const InfoTitle = styled.h3`
   margin: 0;
   font-size: 20px;
   font-weight: bold;
+`;
+
+export const NoBiografy = styled.p`
+  font-size: 20px;
 `;
 
 export const ActorInfoWrapper = styled.div``;

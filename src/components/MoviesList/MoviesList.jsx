@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { BASE_URL } from 'pages/MovieDetailsPage';
+import { defaultImageMovie } from 'service/defaultImages';
 import {
   Container,
   List,
@@ -30,14 +31,13 @@ const MoviesList = ({ movies }) => {
               <MovieItem key={id}>
                 <MovieLink to={`/movies/${id}`} state={{ from: location }}>
                   <MovieWrapper>
-                    {poster_path && (
-                      <MovieImage
-                        src={imageURL}
-                        alt="movie-foto"
-                        width="250"
-                        height="380"
-                      />
-                    )}
+                    <MovieImage
+                      src={poster_path ? imageURL : defaultImageMovie}
+                      alt="movie-foto"
+                      width="250"
+                      height="380"
+                    />
+
                     <MovieRating>{vote}%</MovieRating>
                   </MovieWrapper>
                   <MovieInfoWrapper>

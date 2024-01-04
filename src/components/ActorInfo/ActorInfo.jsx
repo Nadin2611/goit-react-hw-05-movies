@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { defaultImageActor } from 'service/defaultImages';
 import {
   Container,
   FotoContainer,
@@ -13,6 +13,7 @@ import {
   BiografyContainer,
   ActorName,
   Biografy,
+  NoBiografy,
   Deathday,
   InfoTitle,
   InfoWrapper,
@@ -47,14 +48,9 @@ const ActorInfo = ({
     }
   };
 
-  const defaulImage =
-    'https://banffventureforum.com/wp-content/uploads/2019/08/no-photo-icon-22.png';
-
   const handleShowMore = () => {
     setShowFullText(!showFullText);
   };
-
-  console.log(biography);
 
   return (
     <Container>
@@ -64,7 +60,7 @@ const ActorInfo = ({
             src={
               profile_path
                 ? `https://image.tmdb.org/t/p/w500/${profile_path}`
-                : defaulImage
+                : defaultImageActor
             }
             alt="actor-foto"
             width="300"
@@ -79,10 +75,12 @@ const ActorInfo = ({
             <Gender>{getGenderString(gender)}</Gender>
           </InfoWrapper>
 
-          <InfoWrapper>
-            <InfoTitle>Birthday</InfoTitle>
-            <Birthday>{birthday}</Birthday>
-          </InfoWrapper>
+          {birthday && (
+            <InfoWrapper>
+              <InfoTitle>Birthday</InfoTitle>
+              <Birthday>{birthday}</Birthday>
+            </InfoWrapper>
+          )}
 
           {deathday && (
             <InfoWrapper>
@@ -91,10 +89,12 @@ const ActorInfo = ({
             </InfoWrapper>
           )}
 
-          <InfoWrapper>
-            <InfoTitle>Place of birth</InfoTitle>
-            <BirthdayPlace>{place_of_birth}</BirthdayPlace>
-          </InfoWrapper>
+          {place_of_birth && (
+            <InfoWrapper>
+              <InfoTitle>Place of birth</InfoTitle>
+              <BirthdayPlace>{place_of_birth}</BirthdayPlace>
+            </InfoWrapper>
+          )}
 
           {also_known_as && also_known_as.length > 0 && (
             <InfoWrapper>
@@ -110,18 +110,24 @@ const ActorInfo = ({
       </FotoContainer>
       <ActorInfoWrapper>
         <ActorName>{name}</ActorName>
-        <BiografyContainer>
-          <ActorDetailsTitle>Biografy</ActorDetailsTitle>
-          <Biografy>
-            {biography &&
-              (showFullText ? biography : `${biography.slice(0, 1000)}`)}
-          </Biografy>
-          {biography && biography.length > 1000 && (
-            <ShowMoreButton onClick={handleShowMore}>
-              {showFullText ? 'Show Less' : 'Show More...'}
-            </ShowMoreButton>
-          )}
-        </BiografyContainer>
+        {biography ? (
+          <BiografyContainer>
+            <ActorDetailsTitle>Biografy</ActorDetailsTitle>
+            <Biografy>
+              {biography &&
+                (showFullText ? biography : `${biography.slice(0, 1000)}`)}
+            </Biografy>
+            {biography && biography.length > 1000 && (
+              <ShowMoreButton onClick={handleShowMore}>
+                {showFullText ? 'Show Less' : 'Show More...'}
+              </ShowMoreButton>
+            )}
+          </BiografyContainer>
+        ) : (
+          <NoBiografy>
+            Sorry, there is no information about this actor
+          </NoBiografy>
+        )}
       </ActorInfoWrapper>
     </Container>
   );

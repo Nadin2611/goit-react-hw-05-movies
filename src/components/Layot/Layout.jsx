@@ -15,6 +15,9 @@ const Layout = () => {
           <li>
             <Link to="/movies">Movies</Link>
           </li>
+          <li>
+            <Link to="/person">Actors</Link>
+          </li>
         </ul>
       </Header>
       <Suspense fallback={<Loader />}>

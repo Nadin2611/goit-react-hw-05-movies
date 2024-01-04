@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import getMovies from 'service/api';
+import { defaultImageActor } from 'service/defaultImages';
 
 import {
   ActorName,
@@ -44,9 +45,6 @@ const Cast = () => {
     }
   }, [movieId]);
 
-  const defaulImage =
-    'https://banffventureforum.com/wp-content/uploads/2019/08/no-photo-icon-22.png';
-
   return (
     <Container>
       {isLoading && <Loader />}
@@ -60,7 +58,7 @@ const Cast = () => {
                   src={
                     person.profile_path
                       ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
-                      : defaulImage
+                      : defaultImageActor
                   }
                   alt="profile-foto"
                 />

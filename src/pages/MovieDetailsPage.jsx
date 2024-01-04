@@ -3,6 +3,7 @@ import { Suspense, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import getMovies from 'service/api';
+import { defaultImageMovie } from 'service/defaultImages';
 import { Loader } from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
 import BackLink from 'components/BackLink/BackLink';
@@ -34,8 +35,6 @@ const MovieDetailsPage = () => {
 
         const movieVideos = await getMovies(`movie/${movieId}/videos`);
         setVideos(movieVideos.results);
-
-        console.log(movieVideos.results);
       } catch (error) {
         toast.error('Something went wrong!!!');
       } finally {
@@ -46,9 +45,6 @@ const MovieDetailsPage = () => {
       fetchData();
     }
   }, [movieId]);
-
-  const defaulImage =
-    'https://images.pexels.com/photos/6177645/pexels-photo-6177645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
 
   const filteredVideos = findFirstOfficialTrailer(videos);
 
@@ -64,12 +60,12 @@ const MovieDetailsPage = () => {
           poster_path={
             details.poster_path
               ? `${BASE_URL}${details.poster_path}`
-              : defaulImage
+              : defaultImageMovie
           }
           backdrop_path={
             details.backdrop_path
               ? `${BASE_URL}${details.backdrop_path}`
-              : defaulImage
+              : defaultImageMovie
           }
         />
       )}
