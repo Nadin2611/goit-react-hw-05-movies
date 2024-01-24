@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+
 import { BASE_URL } from 'pages/MovieDetailsPage';
 import { defaultImageMovie } from 'service/defaultImages';
 

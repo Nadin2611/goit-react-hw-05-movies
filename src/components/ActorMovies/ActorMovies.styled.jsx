@@ -3,14 +3,28 @@ import styled from 'styled-components';
 
 export const ActorMoviesContainer = styled.div`
   overflow-x: auto;
+  margin-top: 20px;
+  max-width: 1048px;
+
+  /* Стилізація горизонтальної полоси прокрутки */
+  &::-webkit-scrollbar {
+    height: 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 6px;
+    width: 300px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 6px;
+  }
 `;
 
 export const MoviesList = styled.ul`
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
-  padding-bottom: 10px;
-  white-space: nowrap;
 `;
 
 export const MovieItem = styled.li`

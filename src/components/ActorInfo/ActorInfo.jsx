@@ -141,6 +141,7 @@ const ActorInfo = ({
             Sorry, there is no information about this actor
           </NoBiografy>
         )}
+        <ActorDetailsTitle>Known For</ActorDetailsTitle>
         {personMovies && <ActorMovies movies={personMovies} />}
       </ActorInfoWrapper>
     </Container>
