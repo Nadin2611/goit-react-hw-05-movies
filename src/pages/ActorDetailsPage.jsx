@@ -39,6 +39,7 @@ const ActorDetailsPage = () => {
     also_known_as,
     name,
     biography,
+    known_for,
   } = personInfo || {};
 
   return (
@@ -54,6 +55,7 @@ const ActorDetailsPage = () => {
         also_known_as={also_known_as}
         name={name}
         biography={biography}
+        known_for={known_for}
       />
     </div>
   );
