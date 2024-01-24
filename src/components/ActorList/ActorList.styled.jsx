@@ -29,10 +29,6 @@ export const ActorLink = styled(Link)`
   font-size: 18px;
   color: white;
   text-decoration: none;
-
-  &:hover,
-  &:focus {
-  }
 `;
 export const ActorImage = styled.img`
   border-radius: 10px;

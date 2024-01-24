@@ -72,4 +72,8 @@ export const NoBiografy = styled.p`
   font-size: 20px;
 `;
 
-export const ActorInfoWrapper = styled.div``;
+export const ActorInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;

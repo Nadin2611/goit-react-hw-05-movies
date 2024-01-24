@@ -20,6 +20,7 @@ import {
   ActorInfoWrapper,
 } from './ActorInfo.styled';
 import { ShowMoreButton } from 'components/Reviews/Reviews.styled';
+import ActorMovies from 'components/ActorMovies/ActorMovies';
 
 const ActorInfo = ({
   profile_path,
@@ -30,6 +31,7 @@ const ActorInfo = ({
   also_known_as,
   name,
   biography,
+  personMovies,
 }) => {
   const [showFullText, setShowFullText] = useState(false);
 
@@ -139,6 +141,7 @@ const ActorInfo = ({
             Sorry, there is no information about this actor
           </NoBiografy>
         )}
+        {personMovies && <ActorMovies movies={personMovies} />}
       </ActorInfoWrapper>
     </Container>
   );

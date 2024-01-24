@@ -23,10 +23,6 @@ export const MovieLink = styled(Link)`
   font-size: 18px;
   color: white;
   text-decoration: none;
-
-  &:hover,
-  &:focus {
-  }
 `;
 export const MovieImage = styled.img`
   border-radius: 10px;

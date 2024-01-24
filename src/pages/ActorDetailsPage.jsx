@@ -10,6 +10,7 @@ import BackLink from 'components/BackLink/BackLink';
 const ActorDetailsPage = () => {
   const { personId } = useParams();
   const [personInfo, setPersonInfo] = useState(null);
+  const [personMovies, setPersonMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const BackLinkLocationRef = useRef(location.state?.from ?? '/');
@@ -20,13 +21,18 @@ const ActorDetailsPage = () => {
         setIsLoading(true);
         const personData = await getMovies(`person/${personId}`);
 
+        const actorMovies = await getMovies(`person/${personId}/movie_credits`);
+        console.log(actorMovies);
+        const actorMoviesAll = actorMovies.cast;
         setPersonInfo(personData);
+        setPersonMovies(actorMoviesAll);
       } catch (error) {
         toast.error('Something went wrong!!!');
       } finally {
         setIsLoading(false);
       }
     };
+
     fetchActorInfo();
   }, [personId]);
 
@@ -39,7 +45,6 @@ const ActorDetailsPage = () => {
     also_known_as,
     name,
     biography,
-    known_for,
   } = personInfo || {};
 
   return (
@@ -55,7 +60,7 @@ const ActorDetailsPage = () => {
         also_known_as={also_known_as}
         name={name}
         biography={biography}
-        known_for={known_for}
+        personMovies={personMovies}
       />
     </div>
   );
