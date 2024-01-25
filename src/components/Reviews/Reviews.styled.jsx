@@ -16,18 +16,19 @@ export const ReviewsItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid white;
+  border: 1px solid blue;
   border-radius: 10px;
   padding: 12px;
 `;
 
 export const ReviewersName = styled.h2`
-  font-size: 16px;
+  font-size: 14px;
+  text-shadow: 2px 2px 4px blue;
 `;
 
 export const Review = styled.p`
   line-height: 1.5;
-  font-size: 12px;
+  font-size: 10px;
   text-align: justify;
 `;
 

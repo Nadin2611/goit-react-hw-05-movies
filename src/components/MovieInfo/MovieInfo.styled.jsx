@@ -54,18 +54,18 @@ export const UserScoreWrapper = styled.div`
 `;
 
 export const UserScore = styled.p`
-  font-weight: bold;
+  text-shadow: 2px 2px 4px blue;
 `;
 
 export const UserScoreValue = styled.p``;
 
 export const Overview = styled.p`
   margin-bottom: 4px;
-  font-weight: bold;
+  text-shadow: 2px 2px 4px blue;
 `;
 
 export const OverviewText = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   font-style: italic;
 `;
 
@@ -73,7 +73,7 @@ export const GenresWrapper = styled.div``;
 
 export const GenresTitle = styled.h2`
   font-size: 16px;
-  font-weight: bold;
+  text-shadow: 2px 2px 4px blue;
   margin-bottom: 0;
 `;
 
@@ -83,6 +83,7 @@ export const Genres = styled.ul`
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 0;
+  font-size: 14px;
   list-style: none;
   gap: 10px;
 `;
@@ -116,22 +117,21 @@ export const ListItem = styled.li`
 export const Link = styled(NavLink)`
   display: flex;
   align-items: center;
-  padding: 4px 14px;
-  border-radius: 18px;
+  padding: 4px 10px;
+  border-radius: 10px;
   font-size: 16px;
   text-decoration: none;
   color: blue;
   font-weight: 500;
-  transition: background-color 0.3s, color 0.3s;
+  transition: box-shadow 0.3s, color 0.3s;
 
   &:hover,
   &:focus {
     color: white;
-    background-color: blue;
   }
 
   &.active {
     color: white;
-    background-color: blue;
+    box-shadow: 0 0 13px 3px blue;
   }
 `;

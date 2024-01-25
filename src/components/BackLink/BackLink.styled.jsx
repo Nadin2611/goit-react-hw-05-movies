@@ -7,8 +7,12 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: white;
   font-size: 12px;
-  padding: 10px 10px;
+  padding: 6px 6px;
+  width: 100px;
+  margin-bottom: 20px;
   align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 13px 3px blue;
 
   &:hover,
   &:focus {

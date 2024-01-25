@@ -33,9 +33,22 @@ h1 {
   text-align: center;
   font-size: 28px;
   margin-top: 30px;
+  text-shadow: 2px 2px 4px blue;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+  position: absolute;
+}
+
+.no-scroll {
+  overflow: hidden;
 }

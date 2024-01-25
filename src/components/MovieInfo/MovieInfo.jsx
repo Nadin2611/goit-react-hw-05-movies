@@ -1,3 +1,5 @@
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import TheaterComedyOutlinedIcon from '@mui/icons-material/TheaterComedyOutlined';
 import MovieVideo from 'components/MovieVideo/MovieVideo';
 import {
   Container,
@@ -83,10 +85,20 @@ const MovieInfo = ({
         <AdditionalInfo></AdditionalInfo>
         <List>
           <ListItem>
-            <Link to="cast">Cast</Link>
+            <Link to="cast">
+              <TheaterComedyOutlinedIcon
+                style={{ fontSize: '16px', marginRight: '4px' }}
+              />{' '}
+              Cast
+            </Link>
           </ListItem>
           <ListItem>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews">
+              <StarBorderOutlinedIcon
+                style={{ fontSize: '16px', marginRight: '4px' }}
+              />
+              Reviews
+            </Link>
           </ListItem>
         </List>
       </InfoContainer>
