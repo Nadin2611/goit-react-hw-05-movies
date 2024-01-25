@@ -74,8 +74,8 @@ const ActorInfo = ({
               : defaultImageActor
           }
           alt="actor-foto"
-          width="300"
-          height="450"
+          width="200"
+          height="310"
         />
 
         <ActorDetails>

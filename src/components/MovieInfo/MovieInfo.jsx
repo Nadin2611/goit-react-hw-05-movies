@@ -11,8 +11,8 @@ import {
   InfoContainer,
   AdditionalInfo,
   List,
+  Link,
   ListItem,
-  StyledLink,
   DescriptionContainer,
   UserScoreValue,
   UserScoreWrapper,
@@ -30,7 +30,6 @@ const MovieInfo = ({
   overview,
   genres,
   release_date,
-  videos,
   firstOfficialTrailer,
 }) => {
   let year = '';
@@ -52,7 +51,6 @@ const MovieInfo = ({
         {title ?? name} {year && `(${year})`}
       </Title>
       <DescriptionWrapper>
-        {' '}
         <DescriptionContainer>
           <UserScoreWrapper>
             <UserScore>User Score: </UserScore>
@@ -85,10 +83,10 @@ const MovieInfo = ({
         <AdditionalInfo></AdditionalInfo>
         <List>
           <ListItem>
-            <StyledLink to="cast">Cast</StyledLink>
+            <Link to="cast">Cast</Link>
           </ListItem>
           <ListItem>
-            <StyledLink to="reviews">Reviews</StyledLink>
+            <Link to="reviews">Reviews</Link>
           </ListItem>
         </List>
       </InfoContainer>

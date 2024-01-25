@@ -9,20 +9,14 @@ export const Container = styled.div`
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   padding: 0;
   justify-content: center;
 `;
 
 export const ActorItem = styled.li`
   margin-bottom: 10px;
-  width: 250px;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
+  width: 200px;
 `;
 
 export const ActorLink = styled(Link)`
@@ -32,11 +26,15 @@ export const ActorLink = styled(Link)`
 `;
 export const ActorImage = styled.img`
   border-radius: 10px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
-export const ActorWrapper = styled.div`
-  position: relative;
-`;
+export const ActorWrapper = styled.div``;
 
 export const ActorName = styled.p`
   font-size: 16px;

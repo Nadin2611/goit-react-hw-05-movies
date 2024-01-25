@@ -6,8 +6,8 @@ export const StyledLink = styled(Link)`
   gap: 10px;
   text-decoration: none;
   color: white;
-  font-size: 18px;
-  padding: 10px 20px;
+  font-size: 12px;
+  padding: 10px 10px;
   align-items: center;
 
   &:hover,

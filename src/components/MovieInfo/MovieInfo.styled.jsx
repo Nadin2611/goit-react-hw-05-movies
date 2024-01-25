@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -9,14 +8,13 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   margin-bottom: 30px;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: 50px;
   padding: 30px;
   border-radius: 10px;
   background: linear-gradient(
@@ -30,24 +28,23 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 350px;
-  height: 520px;
-
+  width: 200px;
+  height: 300px;
   border-radius: 10px;
 `;
 
 export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  font-size: 20px;
+  // margin-top: 10px;
+  font-size: 16px;
 `;
 
 export const DescriptionWrapper = styled.div`
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  gap: 30px;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const UserScoreWrapper = styled.div`
@@ -68,14 +65,14 @@ export const Overview = styled.p`
 `;
 
 export const OverviewText = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-style: italic;
 `;
 
 export const GenresWrapper = styled.div``;
 
 export const GenresTitle = styled.h2`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 0;
 `;
@@ -95,11 +92,12 @@ export const InfoContainer = styled.div`
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   padding-left: 20px;
+  width: 100%;
 `;
 
 export const AdditionalInfo = styled.p`
   margin-bottom: 5px;
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 export const List = styled.ul`
@@ -115,10 +113,12 @@ export const ListItem = styled.li`
   margin-bottom: 10px;
 `;
 
-export const StyledLink = styled(Link)`
-  padding: 10px 20px;
+export const Link = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  padding: 4px 14px;
   border-radius: 18px;
-  font-size: 24px;
+  font-size: 16px;
   text-decoration: none;
   color: blue;
   font-weight: 500;

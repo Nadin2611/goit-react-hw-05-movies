@@ -12,38 +12,43 @@ export const List = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 10px;
   justify-content: center;
+  align-items: center;
 `;
 
 export const CastItem = styled.li`
   margin-bottom: 10px;
   border: 1px solid white;
   border-radius: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 14px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  max-width: 122px;
+  text-align: center;
 `;
 
 export const ProfileImage = styled.img`
-  width: 200px;
-  height: 270px;
-  margin-bottom: 8px;
+  width: 120px;
+  height: 170px;
+  margin-bottom: 4px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 `;
 
 export const ActorName = styled.h2`
-  font-size: 18px;
-  text-align: center;
-  color: white;
+  font-size: 14px;
+  padding-left: 4px;
+  padding-right: 4px;
 `;
 
 export const CharacterName = styled.p`
-  font-size: 14px;
-  color: white;
-  text-align: center;
-  max-width: 200px;
-  padding: 4px;
+  font-size: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
 `;
 
 export const StyledLinkActor = styled(Link)`

@@ -27,8 +27,8 @@ const ActorList = ({ persons }) => {
                   <ActorImage
                     src={profile_path ? imageURL : defaultImageActor}
                     alt="actor-foto"
-                    width="250"
-                    height="380"
+                    width="200"
+                    height="310"
                   />
                 </ActorWrapper>
                 <ActorInfoWrapper>

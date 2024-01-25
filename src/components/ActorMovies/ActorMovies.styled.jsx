@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const ActorMoviesContainer = styled.div`
   overflow-x: auto;
   margin-top: 20px;
-  max-width: 1048px;
+  max-width: 375px;
 
   /* Стилізація горизонтальної полоси прокрутки */
   &::-webkit-scrollbar {
@@ -13,7 +13,7 @@ export const ActorMoviesContainer = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: blue;
     border-radius: 6px;
-    width: 300px;
+    width: 50px;
   }
 
   &::-webkit-scrollbar-track {
@@ -28,8 +28,7 @@ export const MoviesList = styled.ul`
 `;
 
 export const MovieItem = styled.li`
-  width: 130px;
-
+  width: 100px;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:hover,
@@ -49,7 +48,8 @@ export const MovieWrapper = styled.div`
 `;
 
 export const MovieTitle = styled.p`
-  font-size: 12px;
+  font-size: 10px;
+  padding-top: 4px;
   text-align: center;
   margin: 0 auto;
 `;

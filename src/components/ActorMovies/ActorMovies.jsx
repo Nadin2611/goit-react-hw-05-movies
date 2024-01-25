@@ -28,8 +28,8 @@ const ActorMovies = ({ movies }) => {
                   <MovieImage
                     src={movie.poster_path ? imageURL : defaultImageMovie}
                     alt="movie-foto"
-                    width="130"
-                    height="195"
+                    width="100"
+                    height="150"
                   />
                   <MovieTitle> {movie.title ?? movie.name}</MovieTitle>
                 </MovieWrapper>
