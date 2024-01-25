@@ -57,11 +57,11 @@ export const OtherNames = styled.ul`
   margin: 0;
 `;
 
-export const BiografyContainer = styled.div``;
+export const BiographyContainer = styled.div``;
 
 export const ActorName = styled.h1``;
 
-export const Biografy = styled.p`
+export const Biography = styled.p`
   font-size: 12px;
 `;
 
@@ -71,7 +71,7 @@ export const InfoTitle = styled.h3`
   font-weight: bold;
 `;
 
-export const NoBiografy = styled.p`
+export const NoBiography = styled.p`
   font-size: 18px;
 `;
 

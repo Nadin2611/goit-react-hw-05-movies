@@ -12,6 +12,7 @@ const ActorDetailsPage = () => {
   const { personId } = useParams();
   const [personInfo, setPersonInfo] = useState(null);
   const [personMovies, setPersonMovies] = useState(null);
+  const [personImages, setPersonImages] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const BackLinkLocationRef = useRef(location.state?.from ?? '/');
@@ -21,12 +22,15 @@ const ActorDetailsPage = () => {
       try {
         setIsLoading(true);
         const personData = await getMovies(`person/${personId}`);
+        setPersonInfo(personData);
 
         const actorMovies = await getMovies(`person/${personId}/movie_credits`);
-        console.log(actorMovies);
         const actorMoviesAll = actorMovies.cast;
-        setPersonInfo(personData);
         setPersonMovies(actorMoviesAll);
+
+        const actorImages = await getMovies(`person/${personId}/images`);
+        const actorImagesAll = actorImages.profiles;
+        setPersonImages(actorImagesAll);
       } catch (error) {
         toast.error('Something went wrong!!!');
       } finally {
@@ -62,6 +66,7 @@ const ActorDetailsPage = () => {
         name={name}
         biography={biography}
         personMovies={personMovies}
+        personImages={personImages}
       />
     </Container>
   );

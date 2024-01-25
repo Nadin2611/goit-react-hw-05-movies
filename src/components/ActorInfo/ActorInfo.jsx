@@ -10,10 +10,10 @@ import {
   Birthday,
   BirthdayPlace,
   OtherNames,
-  BiografyContainer,
+  BiographyContainer,
   ActorName,
-  Biografy,
-  NoBiografy,
+  Biography,
+  NoBiography,
   Deathday,
   InfoTitle,
   InfoWrapper,
@@ -21,6 +21,7 @@ import {
 } from './ActorInfo.styled';
 import { ShowMoreButton } from 'components/Reviews/Reviews.styled';
 import ActorMovies from 'components/ActorMovies/ActorMovies';
+import ActorImages from 'components/ActorImages/ActorImages';
 
 const ActorInfo = ({
   profile_path,
@@ -32,6 +33,7 @@ const ActorInfo = ({
   name,
   biography,
   personMovies,
+  personImages,
 }) => {
   const [showFullText, setShowFullText] = useState(false);
 
@@ -124,25 +126,26 @@ const ActorInfo = ({
       <ActorInfoWrapper>
         <ActorName>{name}</ActorName>
         {biography ? (
-          <BiografyContainer>
-            <ActorDetailsTitle>Biografy</ActorDetailsTitle>
-            <Biografy>
+          <BiographyContainer>
+            <ActorDetailsTitle>Biography</ActorDetailsTitle>
+            <Biography>
               {biography &&
                 (showFullText ? biography : `${biography.slice(0, 1000)}`)}
-            </Biografy>
+            </Biography>
             {biography && biography.length > 1000 && (
               <ShowMoreButton onClick={handleShowMore}>
                 {showFullText ? 'Show Less' : 'Show More...'}
               </ShowMoreButton>
             )}
-          </BiografyContainer>
+          </BiographyContainer>
         ) : (
-          <NoBiografy>
+          <NoBiography>
             Sorry, there is no information about this actor
-          </NoBiografy>
+          </NoBiography>
         )}
         <ActorDetailsTitle>Known For</ActorDetailsTitle>
         {personMovies && <ActorMovies movies={personMovies} />}
+        {personImages && <ActorImages images={personImages} />}
       </ActorInfoWrapper>
     </Container>
   );
