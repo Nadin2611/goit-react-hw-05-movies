@@ -35,8 +35,8 @@ const MoviesList = ({ movies }) => {
                     <MovieImage
                       src={poster_path ? imageURL : defaultImageMovie}
                       alt="movie-foto"
-                      width="250"
-                      height="380"
+                      width="200"
+                      height="320"
                     />
 
                     <MovieRating>{vote}%</MovieRating>

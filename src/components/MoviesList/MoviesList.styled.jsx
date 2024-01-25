@@ -2,25 +2,25 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  margin: 20px;
+  margin-top: 20px;
   display: flex;
 `;
 
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   padding: 0;
   justify-content: center;
 `;
 
 export const MovieItem = styled.li`
   margin-bottom: 10px;
-  width: 250px;
+  width: 200px;
 `;
 
 export const MovieLink = styled(Link)`
-  font-size: 18px;
+  font-size: 12px;
   color: white;
   text-decoration: none;
 `;

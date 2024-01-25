@@ -7,6 +7,7 @@ import { defaultImageMovie } from 'service/defaultImages';
 import { Loader } from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
 import BackLink from 'components/BackLink/BackLink';
+import { Container } from 'components/Container/Container.styled';
 
 export const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -49,7 +50,7 @@ const MovieDetailsPage = () => {
   const filteredVideos = findFirstOfficialTrailer(videos);
 
   return (
-    <div>
+    <Container>
       <BackLink to={BackLinkLocationRef.current}>Go back</BackLink>
       {isLoading && <Loader />}
       {details && (
@@ -73,7 +74,7 @@ const MovieDetailsPage = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </div>
+    </Container>
   );
 };
 

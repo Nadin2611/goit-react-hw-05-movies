@@ -6,6 +6,7 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import ActorList from 'components/ActorList/ActorList';
 import { Loader } from 'components/Loader/Loader';
 import getMovies from 'service/api';
+import { Container } from 'components/Container/Container.styled';
 
 const ActorPage = () => {
   const [searchParams] = useSearchParams();
@@ -60,7 +61,7 @@ const ActorPage = () => {
   }, [fetchActorsByKeyword, query]);
 
   return (
-    <>
+    <Container>
       <SearchForm />
       {isLoading && <Loader />}
 
@@ -73,7 +74,7 @@ const ActorPage = () => {
           </div>
         </>
       )}
-    </>
+    </Container>
   );
 };
 

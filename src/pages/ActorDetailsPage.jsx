@@ -6,6 +6,7 @@ import getMovies from 'service/api';
 import ActorInfo from 'components/ActorInfo/ActorInfo';
 import { Loader } from 'components/Loader/Loader';
 import BackLink from 'components/BackLink/BackLink';
+import { Container } from 'components/Container/Container.styled';
 
 const ActorDetailsPage = () => {
   const { personId } = useParams();
@@ -48,7 +49,7 @@ const ActorDetailsPage = () => {
   } = personInfo || {};
 
   return (
-    <div>
+    <Container>
       <BackLink to={BackLinkLocationRef.current}>Go back</BackLink>
       {isLoading && <Loader />}
       <ActorInfo
@@ -62,7 +63,7 @@ const ActorDetailsPage = () => {
         biography={biography}
         personMovies={personMovies}
       />
-    </div>
+    </Container>
   );
 };
 
