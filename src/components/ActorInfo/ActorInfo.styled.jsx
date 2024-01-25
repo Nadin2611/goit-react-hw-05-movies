@@ -5,23 +5,21 @@ export const Container = styled.div`
   line-height: 1.5;
   display: flex;
   flex-direction: column;
-  gap: 30px;
   padding-top: 20px;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const FotoContainer = styled.div`
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
 `;
 
 export const ActorFoto = styled.img`
   height: auto;
   border-radius: 10px;
+  margin: 0 auto;
 `;
 
 export const ActorDetails = styled.div`
@@ -81,4 +79,5 @@ export const ActorInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 20px;
 `;
