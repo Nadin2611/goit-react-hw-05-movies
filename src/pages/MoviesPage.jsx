@@ -5,8 +5,9 @@ import { toast } from 'react-toastify';
 import SearchForm from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { Loader } from 'components/Loader/Loader';
-import getMovies from 'service/api';
+
 import { Container } from 'components/Container/Container.styled';
+import { getMovies } from 'service/api';
 
 const MoviesPage = () => {
   const [searchParams] = useSearchParams();

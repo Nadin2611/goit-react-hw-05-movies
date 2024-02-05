@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import getMovies from 'service/api';
+import { getMovies } from 'service/api';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { Container } from 'components/Container/Container.styled';
 

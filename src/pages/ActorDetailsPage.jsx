@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import getMovies from 'service/api';
+import { getMovies } from 'service/api';
 import ActorInfo from 'components/ActorInfo/ActorInfo';
 import { Loader } from 'components/Loader/Loader';
 import BackLink from 'components/BackLink/BackLink';

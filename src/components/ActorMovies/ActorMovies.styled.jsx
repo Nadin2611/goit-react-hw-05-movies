@@ -8,7 +8,7 @@ export const ActorMoviesContainer = styled.div`
 
   /* Стилізація горизонтальної полоси прокрутки */
   &::-webkit-scrollbar {
-    height: 12px;
+    height: 8px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: blue;

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import SearchForm from 'components/SearchForm/SearchForm';
 import ActorList from 'components/ActorList/ActorList';
 import { Loader } from 'components/Loader/Loader';
-import getMovies from 'service/api';
+import { getMovies } from 'service/api';
 import { Container } from 'components/Container/Container.styled';
 
 const ActorPage = () => {

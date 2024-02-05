@@ -13,4 +13,42 @@ const getMovies = async (endpoint, params = {}) => {
   return response.data;
 };
 
-export default getMovies;
+const getRequestToken = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}authentication/token/new`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+
+    return response.data.request_token;
+  } catch (error) {
+    console.error('Помилка при отриманні токену:', error);
+    throw error;
+  }
+};
+
+const validateTokenWithLogin = async (username, password, requestToken) => {
+  try {
+    const response = await axios.post(
+      `${BASE_URL}authentication/token/validate_with_login`,
+      {
+        username,
+        password,
+        request_token: requestToken,
+      },
+      {
+        params: {
+          api_key: API_KEY,
+        },
+      }
+    );
+
+    return response.data.session_id;
+  } catch (error) {
+    console.error('Помилка при авторизації токену:', error);
+    throw error;
+  }
+};
+
+export { getMovies, getRequestToken, validateTokenWithLogin };

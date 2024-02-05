@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { handleScroll } from 'service/scroll';
-import getMovies from 'service/api';
+import { getMovies } from 'service/api';
 import { defaultImageActor } from 'service/defaultImages';
 
 import {

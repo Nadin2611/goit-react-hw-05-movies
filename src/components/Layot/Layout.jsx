@@ -30,6 +30,7 @@ const Layout = () => {
           <li>
             <Link to="/person">Actors</Link>
           </li>
+          <Link to="/register">Registration</Link>
         </ul>
         {/* <BurgerMenu onClick={() => setIsOpen(!isOpen)} /> */}
       </Header>

@@ -2,7 +2,7 @@ import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import getMovies from 'service/api';
+import { getMovies } from 'service/api';
 import { defaultImageMovie } from 'service/defaultImages';
 import { Loader } from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
