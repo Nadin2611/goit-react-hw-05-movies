@@ -20,8 +20,10 @@ export const RegisterForm = () => {
     try {
       // Отримуємо токен
       const requestToken = await getRequestToken();
+      console.log(requestToken);
 
       // Валідація токену з логіном та паролем
+
       const sessionId = await validateTokenWithLogin(
         name,
         password,

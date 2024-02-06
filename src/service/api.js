@@ -4,12 +4,7 @@ const API_KEY = '2b5715eb91948ab21d8a3671ab9cf18a';
 export const BASE_URL = 'https://api.themoviedb.org/3/';
 
 const getMovies = async (endpoint, params = {}) => {
-  const response = await axios.get(`${BASE_URL}${endpoint}`, {
-    params: {
-      api_key: API_KEY,
-      ...params,
-    },
-  });
+  const response = await axios.get(`${BASE_URL}${endpoint}`, {});
   return response.data;
 };
 
@@ -20,7 +15,7 @@ const getRequestToken = async () => {
         api_key: API_KEY,
       },
     });
-
+    console.log(response);
     return response.data.request_token;
   } catch (error) {
     console.error('Помилка при отриманні токену:', error);
@@ -33,8 +28,6 @@ const validateTokenWithLogin = async (username, password, requestToken) => {
     const response = await axios.post(
       `${BASE_URL}authentication/token/validate_with_login`,
       {
-        username,
-        password,
         request_token: requestToken,
       },
       {
