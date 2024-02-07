@@ -1,24 +1,26 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Container = styled.div`
-  margin: 0 auto;
-  max-width: 335px;
-  padding: 0 10px;
-`;
-
 export const Header = styled.header`
   padding-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 10px;
   border-bottom: 1px solid white;
   font-size: 16px;
 
-  > ul {
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+`;
+
+export const NavList = styled.ul`
+  display: none;
+
+  @media (min-width: 768px) {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
     justify-content: space-between;
   }
@@ -29,27 +31,24 @@ export const Link = styled(NavLink)`
   align-items: center;
   padding: 6px 10px;
   border-radius: 10px;
-  font-size: 14x;
   text-decoration: none;
   color: blue;
   font-weight: 500;
   transition: box-shadow 0.3s, color 0.3s, transform 0.3s;
 
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
-
   &.active {
     color: white;
     box-shadow: 0 0 13px 3px blue;
   }
-`;
 
-export const Logo = styled.span`
-  letter-spacing: -0.5px;
-  font-size: 1.7rem;
-  font-weight: 500;
+  @media (min-width: 768px) {
+    padding: 10px 14px;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -69,4 +68,8 @@ export const StyledLink = styled(NavLink)`
   }
 `;
 
-export const LogoImage = styled.img``;
+export const LogoImage = styled.img`
+  display: block;
+  max-width: 100%;
+  height: auto;
+`;

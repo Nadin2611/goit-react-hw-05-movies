@@ -21,7 +21,7 @@ const HomePage = () => {
 
   return (
     <Container>
-      <h1>Trending today</h1>
+      <h1>Trending movies this week</h1>
       <div>
         <MoviesList movies={trendingMovies} />
       </div>

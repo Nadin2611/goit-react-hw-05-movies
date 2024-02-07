@@ -7,11 +7,11 @@ import {
   Input,
   Button,
 } from './RegisterForm.styled';
-import { getRequestToken, validateTokenWithLogin } from 'service/api';
+
+import { getRequestToken, createSessionId } from 'service/api';
 
 export const RegisterForm = () => {
   const [name, setName] = useState('');
-
   const [password, setPassword] = useState('');
 
   const handleSubmit = async event => {
@@ -22,21 +22,15 @@ export const RegisterForm = () => {
       const requestToken = await getRequestToken();
       console.log(requestToken);
 
-      // Валідація токену з логіном та паролем
-
-      const sessionId = await validateTokenWithLogin(
-        name,
-        password,
-        requestToken
-      );
-
-      // Тепер у вас є сеанс ID, який можна використовувати для подальших операцій
-
-      // Додайте тут код для подальших дій з отриманим сеансом ID
-      console.log(sessionId);
+      // За необхідності, ви можете перевірити, чи отримано токен, перед тим як створювати сесійний ідентифікатор
+      if (requestToken) {
+        // Створюємо сесійний ідентифікатор за допомогою токену
+        const sessionId = await createSessionId(requestToken);
+        console.log(sessionId);
+        // Тепер можна використовувати сесійний ідентифікатор для роботи з обліковими записами користувачів
+      }
     } catch (error) {
       console.error('Помилка при реєстрації:', error);
-      // Обробити помилку відповідним чином
     }
   };
   return (

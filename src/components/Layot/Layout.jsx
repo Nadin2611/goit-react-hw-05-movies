@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Container, Header, Logo, Link } from './Layout.styled';
+import { Header, Link, NavList, LogoImage } from './Layout.styled';
 import { Loader } from 'components/Loader/Loader';
-
-// import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
+import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
+import { Container } from 'components/Container/Container.styled';
 
 const Layout = () => {
   // const [isOpen, setIsOpen] = useState(false);
@@ -12,15 +12,9 @@ const Layout = () => {
   return (
     <Container>
       <Header>
-        <Logo>
-          {/* <LogoImage
-            src="../image/free-icon.png"
-            alt="CineVista Logo"
-            width="40"
-            height="40"
-          /> */}
-        </Logo>
-        <ul>
+        <LogoImage src="" alt="CineVista Logo" width="40" height="40" />
+
+        <NavList>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -30,10 +24,9 @@ const Layout = () => {
           <li>
             <Link to="/person">Actors</Link>
           </li>
-          <Link to="/register">Registration</Link>
-        </ul>
-        {/* <BurgerMenu onClick={() => setIsOpen(!isOpen)} /> */}
+        </NavList>
       </Header>
+      <BurgerMenu />
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

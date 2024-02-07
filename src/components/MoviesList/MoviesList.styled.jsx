@@ -17,6 +17,10 @@ export const List = styled.ul`
 export const MovieItem = styled.li`
   margin-bottom: 10px;
   width: 200px;
+
+  @media (min-width: 1440px) {
+    width: 250px;
+  }
 `;
 
 export const MovieLink = styled(Link)`
@@ -24,6 +28,7 @@ export const MovieLink = styled(Link)`
   color: white;
   text-decoration: none;
 `;
+
 export const MovieImage = styled.img`
   border-radius: 10px;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -31,6 +36,11 @@ export const MovieImage = styled.img`
   &:hover,
   &:focus {
     transform: scale(1.1);
+  }
+
+  @media (min-width: 1440px) {
+    width: 250px;
+    height: 380px;
   }
 `;
 
@@ -47,6 +57,12 @@ export const MovieRating = styled.div`
   position: absolute;
   bottom: -16px;
   left: 10px;
+
+  @media (min-width: 1440px) {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
 `;
 
 export const MovieWrapper = styled.div`
@@ -59,6 +75,10 @@ export const MovieTitle = styled.p`
   text-align: center;
   margin: 0 auto;
   margin-top: 20px;
+
+  @media (min-width: 1440px) {
+    font-size: 20px;
+  }
 `;
 
 export const MovieYear = styled.p`
