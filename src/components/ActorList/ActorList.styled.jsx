@@ -17,6 +17,10 @@ export const List = styled.ul`
 export const ActorItem = styled.li`
   margin-bottom: 10px;
   width: 200px;
+
+  @media (min-width: 1440px) {
+    width: 250px;
+  }
 `;
 
 export const ActorLink = styled(Link)`
@@ -28,10 +32,14 @@ export const ActorImage = styled.img`
   border-radius: 10px;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
+  @media (min-width: 1440px) {
+    width: 250px;
+    height: 380px;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
 `;
 
 export const ActorWrapper = styled.div``;
@@ -42,6 +50,10 @@ export const ActorName = styled.p`
   text-align: center;
   margin: 0 auto;
   margin-top: 20px;
+
+  @media (min-width: 1440px) {
+    font-size: 20px;
+  }
 `;
 
 export const ActorInfoWrapper = styled.div`

@@ -24,7 +24,7 @@ export const MovieItem = styled.li`
 `;
 
 export const MovieLink = styled(Link)`
-  font-size: 12px;
+  font-size: 18px;
   color: white;
   text-decoration: none;
 `;
@@ -33,14 +33,14 @@ export const MovieImage = styled.img`
   border-radius: 10px;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
-
   @media (min-width: 1440px) {
     width: 250px;
     height: 380px;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
   }
 `;
 
