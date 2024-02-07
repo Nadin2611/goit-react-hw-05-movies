@@ -36,6 +36,26 @@ export const Input = styled.input`
     font-size: 14px;
     border-color: blue;
   }
+
+  @media (min-width: 768px) {
+    width: 350px;
+    font-size: 18px;
+    &:hover,
+    &:focus,
+    &:not(:placeholder-shown) {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    width: 450px;
+    font-size: 20px;
+    &:hover,
+    &:focus,
+    &:not(:placeholder-shown) {
+      font-size: 20px;
+    }
+  }
 `;
 
 export const Button = styled.button`
@@ -51,14 +71,22 @@ export const Button = styled.button`
   right: 1px;
   transition: background-color 0.3s, color 0.3s;
 
-  &:hover,
-  &:focus {
+  &.active {
     color: white;
     background-color: blue;
   }
 
-  &.active {
-    color: white;
-    background-color: blue;
+  @media (min-width: 768px) {
+    font-size: 18px;
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: blue;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 20px;
   }
 `;
