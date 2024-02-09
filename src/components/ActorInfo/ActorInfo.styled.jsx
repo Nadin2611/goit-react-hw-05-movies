@@ -6,6 +6,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 40px;
+  }
 `;
 
 export const FotoContainer = styled.div`
@@ -20,12 +25,26 @@ export const ActorFoto = styled.img`
   height: auto;
   border-radius: 10px;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 250px;
+    height: 380px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 300px;
+    height: 450px;
+  }
 `;
 
 export const ActorDetails = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
 `;
 
 export const ActorDetailsTitle = styled.h2`
@@ -33,6 +52,14 @@ export const ActorDetailsTitle = styled.h2`
   font-size: 18px;
   font-weight: bold;
   padding-top: 12px;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 24px;
+  }
 `;
 
 export const InfoWrapper = styled.div``;
@@ -63,6 +90,14 @@ export const ActorName = styled.h1``;
 
 export const Biography = styled.p`
   font-size: 12px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 18px;
+  }
 `;
 
 export const InfoTitle = styled.h3`

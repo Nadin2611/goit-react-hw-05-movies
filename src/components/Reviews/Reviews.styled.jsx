@@ -40,8 +40,16 @@ export const ShowMoreButton = styled.button`
   align-self: flex-end;
   cursor: pointer;
 
-  &:hover,
-  &:focus {
-    color: blue;
+  @media (min-width: 768px) {
+    font-size: 16px;
+
+    &:hover,
+    &:focus {
+      color: blue;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 18px;
   }
 `;

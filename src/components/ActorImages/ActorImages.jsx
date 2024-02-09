@@ -20,8 +20,8 @@ const ActorImages = ({ images }) => {
               <Image
                 src={image.file_path ? imageURL : defaultImageActor}
                 alt="actor-foto"
-                width="80"
-                height="150"
+                width="100"
+                height="195"
               />
             </ImageItem>
           );

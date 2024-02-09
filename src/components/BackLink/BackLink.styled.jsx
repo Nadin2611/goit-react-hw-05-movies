@@ -14,8 +14,20 @@ export const StyledLink = styled(Link)`
   border-radius: 10px;
   box-shadow: 0 0 13px 3px blue;
 
-  &:hover,
-  &:focus {
-    color: blue;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    padding: 8px 8px;
+    width: 120px;
+
+    &:hover,
+    &:focus {
+      color: blue;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 18px;
+    padding: 10px 10px;
+    width: 140px;
   }
 `;

@@ -9,6 +9,7 @@ export const ActorImageContainer = styled.div`
   &::-webkit-scrollbar {
     height: 8px;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: blue;
     border-radius: 6px;
@@ -19,6 +20,17 @@ export const ActorImageContainer = styled.div`
     background-color: white;
     border-radius: 6px;
   }
+
+  @media (min-width: 768px) {
+    max-width: 500px;
+    &::-webkit-scrollbar-thumb {
+      width: 150px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1000px;
+  }
 `;
 
 export const ImageList = styled.ul`
@@ -27,16 +39,34 @@ export const ImageList = styled.ul`
 `;
 
 export const ImageItem = styled.li`
-  width: 80px;
+  width: 100px;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
+  @media (min-width: 768px) {
+    width: 120px;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    width: 150px;
   }
 `;
 
 export const Image = styled.img`
   border-radius: 10px;
   object-fit: cover;
+
+  @media (min-width: 768px) {
+    width: 120px;
+    height: 190px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 150px;
+    height: 240px;
+  }
 `;
