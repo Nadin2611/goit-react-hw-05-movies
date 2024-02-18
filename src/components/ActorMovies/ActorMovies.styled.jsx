@@ -28,6 +28,7 @@ export const ActorMoviesContainer = styled.div`
       width: 150px;
     }
   }
+
   @media (min-width: 1440px) {
     max-width: 1000px;
   }
@@ -60,6 +61,7 @@ export const MovieLink = styled(Link)`
   color: white;
   text-decoration: none;
 `;
+
 export const MovieWrapper = styled.div`
   text-align: center;
   display: flex;
@@ -71,6 +73,14 @@ export const MovieTitle = styled.p`
   padding-top: 4px;
   text-align: center;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    font-size: 12px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 14px;
+  }
 `;
 
 export const MovieImage = styled.img`
