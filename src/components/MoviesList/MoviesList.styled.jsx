@@ -33,14 +33,16 @@ export const MovieImage = styled.img`
   border-radius: 10px;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  @media (min-width: 1440px) {
-    width: 250px;
-    height: 380px;
-
+  @media (min-width: 768px) {
     &:hover,
     &:focus {
       transform: scale(1.1);
     }
+  }
+
+  @media (min-width: 1440px) {
+    width: 250px;
+    height: 380px;
   }
 `;
 
@@ -57,6 +59,14 @@ export const MovieRating = styled.div`
   position: absolute;
   bottom: -16px;
   left: 10px;
+  transition: transform 0.5s ease;
+
+  @media (min-width: 768px) {
+    &:hover,
+    &:focus {
+      transform: scale(1.5) rotate(360deg);
+    }
+  }
 
   @media (min-width: 1440px) {
     width: 45px;

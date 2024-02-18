@@ -11,10 +11,20 @@ export const Title = styled.h2`
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 32px;
+  }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
+  position: relative; //зміни
+  flex-direction: column;
   padding: 30px;
   border-radius: 10px;
   background: linear-gradient(
@@ -28,9 +38,17 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 200px;
-  height: 300px;
   border-radius: 10px;
+
+  @media (min-width: 768px) {
+    width: 250px;
+    height: 370px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 300px;
+    height: 430px;
+  }
 `;
 
 export const DescriptionContainer = styled.div`
@@ -38,6 +56,14 @@ export const DescriptionContainer = styled.div`
   flex-direction: column;
   // margin-top: 10px;
   font-size: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 22px;
+  }
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -67,14 +93,30 @@ export const Overview = styled.p`
 export const OverviewText = styled.p`
   font-size: 14px;
   font-style: italic;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 20px;
+  }
 `;
 
 export const GenresWrapper = styled.div``;
 
-export const GenresTitle = styled.h2`
+export const GenresTitle = styled.p`
   font-size: 16px;
   text-shadow: 2px 2px 4px blue;
   margin-bottom: 0;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 22px;
+  }
 `;
 
 export const Genres = styled.ul`
@@ -86,6 +128,14 @@ export const Genres = styled.ul`
   font-size: 14px;
   list-style: none;
   gap: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 20px;
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -125,13 +175,21 @@ export const Link = styled(NavLink)`
   font-weight: 500;
   transition: box-shadow 0.3s, color 0.3s;
 
-  &:hover,
-  &:focus {
-    color: white;
+  @media (min-width: 768px) {
+    font-size: 20px;
+
+    &:hover,
+    &:focus {
+      color: white;
+    }
+
+    &.active {
+      color: white;
+      box-shadow: 0 0 13px 3px blue;
+    }
   }
 
-  &.active {
-    color: white;
-    box-shadow: 0 0 13px 3px blue;
+  @media (min-width: 1440px) {
+    font-size: 24px;
   }
 `;

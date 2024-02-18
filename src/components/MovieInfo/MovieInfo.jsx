@@ -46,7 +46,7 @@ const MovieInfo = ({
     <Container>
       <Wrapper background={backdrop_path}>
         {poster_path && (
-          <Image src={poster_path} alt="movie-foto" width="100" height="100" />
+          <Image src={poster_path} alt="movie-foto" width="200" height="300" />
         )}
       </Wrapper>
       <Title>
