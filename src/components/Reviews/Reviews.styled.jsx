@@ -9,6 +9,14 @@ export const ReviewsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @media (min-width: 768px) {
+    gap: 18px;
+  }
+
+  @media (min-width: 1440px) {
+    gap: 20px;
+  }
 `;
 
 export const ReviewsItem = styled.li`
@@ -24,12 +32,28 @@ export const ReviewsItem = styled.li`
 export const ReviewersName = styled.h2`
   font-size: 14px;
   text-shadow: 2px 2px 4px blue;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 20px;
+  }
 `;
 
 export const Review = styled.p`
   line-height: 1.5;
   font-size: 10px;
   text-align: justify;
+
+  @media (min-width: 768px) {
+    font-size: 12px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 16px;
+  }
 `;
 
 export const ShowMoreButton = styled.button`

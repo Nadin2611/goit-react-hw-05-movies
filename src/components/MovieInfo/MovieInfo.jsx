@@ -11,7 +11,6 @@ import {
   OverviewText,
   Genres,
   InfoContainer,
-  AdditionalInfo,
   List,
   Link,
   ListItem,
@@ -82,21 +81,16 @@ const MovieInfo = ({
       </DescriptionWrapper>
 
       <InfoContainer>
-        <AdditionalInfo></AdditionalInfo>
         <List>
           <ListItem>
             <Link to="cast">
-              <TheaterComedyOutlinedIcon
-                style={{ fontSize: '16px', marginRight: '4px' }}
-              />{' '}
+              <TheaterComedyOutlinedIcon style={{ marginRight: '4px' }} />
               Cast
             </Link>
           </ListItem>
           <ListItem>
             <Link to="reviews">
-              <StarBorderOutlinedIcon
-                style={{ fontSize: '16px', marginRight: '4px' }}
-              />
+              <StarBorderOutlinedIcon style={{ marginRight: '4px' }} />
               Reviews
             </Link>
           </ListItem>
